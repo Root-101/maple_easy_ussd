@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:easy_ussd/ussd_exporter.dart';
 
-void main() {//flutter run -t lib/src/main.dart
+void main() {
   runApp(SplashScreen());
 }
 
