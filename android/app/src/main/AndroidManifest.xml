@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.root101.maple.movil.easy_ussd.easy_ussd">
    <application
-        android:label="easy_ussd"
+        android:label="Fácil *133#"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"

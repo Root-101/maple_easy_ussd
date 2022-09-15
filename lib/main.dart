@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:easy_ussd/ussd_exporter.dart';
 
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   runApp(SplashScreen());
 }
 
@@ -45,6 +49,7 @@ class SplashScreen extends StatelessWidget {
             child: CircularProgressIndicator.adaptive(),
           );
         } else {
+          FlutterNativeSplash.remove();
           return MyApp();
         }
       },
