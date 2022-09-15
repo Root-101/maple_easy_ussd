@@ -1,4 +1,4 @@
-library movil_exporter;
+library ussd_exporter;
 
 export 'src/actions/actions_exporter.dart';
 export 'src/app/ussd_app_exporter.dart';
