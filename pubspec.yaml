@@ -46,12 +46,12 @@ dev_dependencies:
 
 #configuration of splash screen, if something change, run: `flutter pub run flutter_native_splash:create`
 flutter_native_splash:
-  #android_12:
-  #  image: "assets/app_splash.png"
-  #  color: "#42a5f5"
-  #  branding: "assets/app_splash.png"
-  background_image: "assets/app_splash.png"
-  #color: "#42a5f5"
+  android_12:
+    image: assets/app_splash.png
+    color: "#42a5f5"
+    icon_background_color: "#eeeeee"
+  image: assets/app_splash.png
+  color: "#42a5f5"
 
 #configuration of flutter_icons, if something change, run: `flutter pub run flutter_launcher_icons:main`
 flutter_icons:
