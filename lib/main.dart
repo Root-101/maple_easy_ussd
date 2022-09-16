@@ -10,11 +10,11 @@ void main() {
   runApp(SplashScreen());
 }
 
-class MyApp extends StatelessWidget {
+class USSDApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'USSD Tutorial',
+      title: 'Fácil *133#',
       //--------------------- <THEAMING> -----------------------------------
       darkTheme: ThemeData(
         primarySwatch: Colors.purple,
@@ -22,11 +22,16 @@ class MyApp extends StatelessWidget {
       ),
       //--------------------- </THEAMING> -----------------------------------
       //--------------------- <PAGINATION> -----------------------------------
-      initialRoute: USSDMainScreen.ROUTE_NAME,
+      initialRoute: USSDIntroScreenPage.ROUTE_NAME,
       getPages: [
         GetPage(
           name: USSDMainScreen.ROUTE_NAME,
           page: () => USSDMainScreen(),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: USSDIntroScreenPage.ROUTE_NAME,
+          page: () => USSDIntroScreenPage(),
           transition: Transition.rightToLeft,
         ),
       ],
@@ -44,13 +49,13 @@ class SplashScreen extends StatelessWidget {
     return FutureBuilder(
       future: Init.instance.initialize(),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          FlutterNativeSplash.remove();
+          return USSDApp();
+        } else {
           return Center(
             child: CircularProgressIndicator.adaptive(),
           );
-        } else {
-          FlutterNativeSplash.remove();
-          return MyApp();
         }
       },
     );

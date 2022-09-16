@@ -3,7 +3,7 @@ import 'package:easy_ussd/ussd_exporter.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
 class USSDMainScreen extends StatelessWidget {
-  static const ROUTE_NAME = "/maple-src-main-screen";
+  static const ROUTE_NAME = "/maple-movil-ussd-main-screen";
 
   USSDMainScreen({Key? key}) : super(key: key);
 

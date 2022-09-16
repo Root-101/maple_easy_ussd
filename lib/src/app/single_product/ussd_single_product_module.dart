@@ -5,7 +5,15 @@ class USSDSingleProductModule {
   static Future init() async {
     await USSDUIModule.init();
 
-    Get.put<USSDFirstTimeOpenUseCase>(USSDFirstTimeOpenUseCaseImpl());
-    Get.put<USSDFirstTimeOpenController>(USSDFirstTimeOpenControllerImpl());
+    /*
+    print('Iniciando UC de Single product');
+    USSDFirstTimeOpenUseCase uc = USSDFirstTimeOpenUseCaseImpl();
+    print('Iniciando Controller de Single product');
+    Get.put<USSDIntroScreenController>(USSDIntroScreenControllerImpl(uc));
+    print('Terminado init de Single product');
+    */
+
+
+    Get.put<USSDIntroScreenController>(USSDIntroScreenControllerImpl());
   }
 }
