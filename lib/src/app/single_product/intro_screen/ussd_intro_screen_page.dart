@@ -6,6 +6,8 @@ import 'package:introduction_screen/introduction_screen.dart';
 class USSDIntroScreenPage extends GetView<USSDIntroScreenController> {
   static const ROUTE_NAME = "/maple-movil-ussd-introduction-screen";
 
+  USSDIntroScreenPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     if (controller.isFirstTime()) {
@@ -32,7 +34,7 @@ class USSDIntroScreenPage extends GetView<USSDIntroScreenController> {
                 borderRadius: BorderRadius.circular(25.0))),
       );
     } else {
-      return USSDMainScreen();
+      return USSDSingleProductMainScreen();
     }
   }
 

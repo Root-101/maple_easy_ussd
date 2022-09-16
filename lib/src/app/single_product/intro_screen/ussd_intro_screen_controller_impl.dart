@@ -9,7 +9,10 @@ class USSDIntroScreenControllerImpl extends USSDIntroScreenController {
   @override
   void resetOpenApp() {
     uc.resetOpenApp();
-    update();
+    Get.offNamed(
+      USSDIntroScreenPage.ROUTE_NAME,
+      preventDuplicates: false,//ni idea xq, pero si no, no funciona
+    );
   }
 
   @override
@@ -26,7 +29,7 @@ class USSDIntroScreenControllerImpl extends USSDIntroScreenController {
   @override
   void done() {
     openApp();
-    Get.offNamed(USSDMainScreen.ROUTE_NAME);
+    Get.offNamed(USSDSingleProductMainScreen.ROUTE_NAME);
   }
 
   @override

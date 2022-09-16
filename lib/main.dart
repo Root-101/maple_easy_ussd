@@ -25,13 +25,13 @@ class USSDApp extends StatelessWidget {
       initialRoute: USSDIntroScreenPage.ROUTE_NAME,
       getPages: [
         GetPage(
-          name: USSDMainScreen.ROUTE_NAME,
-          page: () => USSDMainScreen(),
-          transition: Transition.rightToLeft,
-        ),
-        GetPage(
           name: USSDIntroScreenPage.ROUTE_NAME,
           page: () => USSDIntroScreenPage(),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: USSDSingleProductMainScreen.ROUTE_NAME,
+          page: () => USSDSingleProductMainScreen(),
           transition: Transition.rightToLeft,
         ),
       ],
