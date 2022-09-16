@@ -2,25 +2,25 @@ import 'package:get/get.dart';
 import 'package:easy_ussd/ussd_exporter.dart';
 
 class USSDIntroScreenControllerImpl extends USSDIntroScreenController {
-  //USSDFirstTimeOpenUseCase uc;
+  USSDFirstTimeOpenUseCase uc;
 
-  USSDIntroScreenControllerImpl();
+  USSDIntroScreenControllerImpl(this.uc);
 
   @override
   void resetOpenApp() {
-    //uc.resetOpenApp();
+    uc.resetOpenApp();
     update();
   }
 
   @override
   void openApp() {
-    //uc.openApp();
+    uc.openApp();
     update();
   }
 
   @override
   bool isFirstTime() {
-    return true; //uc.isFirstTime();
+    return uc.isFirstTime();
   }
 
   @override

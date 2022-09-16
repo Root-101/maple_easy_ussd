@@ -5,7 +5,7 @@ import 'package:easy_ussd/ussd_exporter.dart';
 class USSDFirstTimeOpenUseCaseImpl
     extends SingleKeyValueUseCaseImpl<String, bool>
     implements USSDFirstTimeOpenUseCase {
-  static const String KEY = "FIRST_TIME";
+  static const String KEY = "maple.movil.ussd.first_time_open_app";
   static const bool DEFAULT_VALUE = true;
 
   USSDFirstTimeOpenUseCaseImpl()
@@ -20,12 +20,12 @@ class USSDFirstTimeOpenUseCaseImpl
 
   @override
   void resetOpenApp() {
-    update(false);
+    update(true);
   }
 
   @override
   void openApp() {
-    update(true);
+    update(false);
   }
 
   bool isFirstTime() {

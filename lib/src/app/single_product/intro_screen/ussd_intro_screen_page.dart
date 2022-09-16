@@ -8,7 +8,6 @@ class USSDIntroScreenPage extends GetView<USSDIntroScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    print('USSDIntroScreenPage build');
     if (controller.isFirstTime()) {
       return IntroductionScreen(
         pages: pages,
