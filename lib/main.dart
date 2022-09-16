@@ -63,6 +63,6 @@ class Init {
   static final instance = Init._();
 
   Future initialize() async {
-    await USSDUIModule.init();
+    await USSDSingleProductModule.init();
   }
 }

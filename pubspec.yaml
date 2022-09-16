@@ -25,7 +25,8 @@ dependencies:
   awesome_dialog: ^3.0.1
   loader_overlay: ^2.0.10
 
-  #S
+  #Splash, intro, tutorials
+  introduction_screen: ^3.0.1
   flutter_native_splash: ^2.2.9
 
   cupertino_icons: ^1.0.5
