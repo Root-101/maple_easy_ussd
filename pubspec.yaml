@@ -3,7 +3,7 @@ description: Aplicacion para facilitar el uso de los códigos USSD de ETECSA par
 
 publish_to: 'none'
 
-version: 1.0.0-BETA.20220915
+version: 1.1.0-SNAPSHOT.20220916
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
