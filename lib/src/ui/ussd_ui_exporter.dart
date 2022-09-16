@@ -1,4 +1,4 @@
-library ussd_exporter;
+library ussd_ui_exporter;
 
 export 'a_module/ussd_ui_module_exporter.dart';
 export 'c_controller/ussd_controller_exporter.dart';

@@ -3,7 +3,7 @@ description: Aplicacion para facilitar el uso de los códigos USSD de ETECSA par
 
 publish_to: 'none'
 
-version: 1.0.0-BETA.20220915
+version: 1.1.0-SNAPSHOT.20220916
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
@@ -25,6 +25,10 @@ dependencies:
   awesome_dialog: ^3.0.1
   loader_overlay: ^2.0.10
 
+  #Splash, intro, tutorials
+  introduction_screen: ^3.0.1
+  flutter_native_splash: ^2.2.9
+
   cupertino_icons: ^1.0.5
 
   #DB
@@ -34,15 +38,48 @@ dependencies:
   flat_buffers: ^2.0.5
   clean_repo_objectbox: ^1.0.0-RELEASE.20220407
 
+  #Utils
+  permission_handler: ^10.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^2.2.9
+  flutter_launcher_icons: ^0.10.0
+  #flutter_app_name: ^0.1.1
+
+#configuration of splash screen, if something change, run: `flutter pub run flutter_native_splash:create`
+flutter_native_splash:
+  android_12:
+    image: assets/app_splash.png
+    color: "#42a5f5"
+    icon_background_color: "#eeeeee"
+  image: assets/app_splash.png
+  color: "#42a5f5"
+
+#configuration of flutter_icons, if something change, run: `flutter pub run flutter_launcher_icons:main`
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/app_icon.png"
+
+#configuration of flutter_app_name, if something change, run: `flutter pub run flutter_app_name`
+#flutter_app_name:
+#  name: "Maple"
+
 
   #DB code generation
   build_runner: ^2.2.0
   objectbox_generator: ^1.6.0
 
 flutter:
-
   uses-material-design: true
 
+  assets:
+    - assets/app_icon.png
+    - assets/app_splash.png
+
+  fonts:
+    - family: RobotoSlab
+      fonts:
+        - asset: assets/fonts/RobotoSlab-Variable.ttf
+          weight: 400

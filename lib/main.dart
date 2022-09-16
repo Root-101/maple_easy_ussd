@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:easy_ussd/ussd_exporter.dart';
 
-void main() {//flutter run -t lib/src/main.dart
+void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   runApp(SplashScreen());
 }
 
-class MyApp extends StatelessWidget {
+class USSDApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'USSD Tutorial',
+      title: 'Fácil *133#',
       //--------------------- <THEAMING> -----------------------------------
       darkTheme: ThemeData(
         primarySwatch: Colors.purple,
@@ -18,11 +22,16 @@ class MyApp extends StatelessWidget {
       ),
       //--------------------- </THEAMING> -----------------------------------
       //--------------------- <PAGINATION> -----------------------------------
-      initialRoute: USSDMainScreen.ROUTE_NAME,
+      initialRoute: USSDIntroScreenPage.ROUTE_NAME,
       getPages: [
         GetPage(
-          name: USSDMainScreen.ROUTE_NAME,
-          page: () => USSDMainScreen(),
+          name: USSDIntroScreenPage.ROUTE_NAME,
+          page: () => USSDIntroScreenPage(),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: USSDSingleProductMainScreen.ROUTE_NAME,
+          page: () => USSDSingleProductMainScreen(),
           transition: Transition.rightToLeft,
         ),
       ],
@@ -40,12 +49,13 @@ class SplashScreen extends StatelessWidget {
     return FutureBuilder(
       future: Init.instance.initialize(),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          FlutterNativeSplash.remove();
+          return USSDApp();
+        } else {
           return Center(
             child: CircularProgressIndicator.adaptive(),
           );
-        } else {
-          return MyApp();
         }
       },
     );
@@ -58,6 +68,6 @@ class Init {
   static final instance = Init._();
 
   Future initialize() async {
-    await USSDUIModule.init();
+    await USSDSingleProductModule.init();
   }
 }
