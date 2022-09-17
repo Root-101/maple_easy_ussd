@@ -2,6 +2,13 @@
   <library name="Dart Packages" type="DartPackagesLibraryType">
     <properties>
       <option name="packageNameToDirsMap">
+        <entry key="animated_theme_switcher">
+          <value>
+            <list>
+              <option value="$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/animated_theme_switcher-2.0.6/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="archive">
           <value>
             <list>
@@ -544,6 +551,7 @@
       </option>
     </properties>
     <CLASSES>
+      <root url="file://$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/animated_theme_switcher-2.0.6/lib" />
       <root url="file://$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/archive-3.3.1/lib" />
       <root url="file://$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/args-2.3.1/lib" />
       <root url="file://$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/async-2.9.0/lib" />

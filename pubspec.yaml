@@ -28,6 +28,8 @@ dependencies:
   #Splash, intro, tutorials
   introduction_screen: ^3.0.1
   flutter_native_splash: ^2.2.9
+  animated_theme_switcher: ^2.0.5
+
 
   cupertino_icons: ^1.0.5
 
