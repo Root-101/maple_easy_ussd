@@ -5,21 +5,14 @@ class USSDControllerImpl extends USSDController {
   USSDUseCase uc = Get.find<USSDUseCase>();
 
   @override
-  List<USSDGroupsDomain> get items => USSDGroupsDomain.GROUPS;
-
-  @override
-  List<USSDGroupsDomain> get itemsToExpand => USSDGroupsDomain.GROUPS_REDUCED;
-
-  @override
-  void changeExpansion(int index, bool isExpanded) {
-    USSDGroupsDomain tapped = items[index];
-    uc.changeExpansion(tapped.groupId, !isExpanded);
+  void changeExpansion(USSDGroupsDomain item, bool isExpanded) {
+    uc.changeExpansion(item.groupKey, !isExpanded);
     update();
   }
 
   @override
   bool isExpandedGroup(USSDGroupsDomain item) {
-    return uc.isExpandedGroup(item.groupId);
+    return uc.isExpandedGroup(item.groupKey);
   }
 
   @override

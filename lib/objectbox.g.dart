@@ -22,7 +22,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(1, 8195781853182384524),
       name: 'USSDExpandedGroupEntity',
-      lastPropertyId: const IdUid(3, 7456535921171101739),
+      lastPropertyId: const IdUid(4, 1194776785211634525),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -31,16 +31,16 @@ final _entities = <ModelEntity>[
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 1017336373897191586),
-            name: 'groupId',
-            type: 6,
-            flags: 40,
-            indexId: const IdUid(1, 7015419465327010104)),
-        ModelProperty(
             id: const IdUid(3, 7456535921171101739),
             name: 'expanded',
             type: 1,
-            flags: 0)
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 1194776785211634525),
+            name: 'groupKey',
+            type: 9,
+            flags: 2080,
+            indexId: const IdUid(3, 9217226278114177738))
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
@@ -92,12 +92,12 @@ ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
       lastEntityId: const IdUid(2, 8629747884124646899),
-      lastIndexId: const IdUid(2, 4944760352389094358),
+      lastIndexId: const IdUid(3, 9217226278114177738),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
-      retiredIndexUids: const [],
-      retiredPropertyUids: const [],
+      retiredIndexUids: const [7015419465327010104],
+      retiredPropertyUids: const [1017336373897191586],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -113,10 +113,11 @@ ModelDefinition getObjectBoxModel() {
           object.id = id;
         },
         objectToFB: (USSDExpandedGroupEntity object, fb.Builder fbb) {
-          fbb.startTable(4);
+          final groupKeyOffset = fbb.writeString(object.groupKey);
+          fbb.startTable(5);
           fbb.addInt64(0, object.id);
-          fbb.addInt64(1, object.groupId);
           fbb.addBool(2, object.expanded);
+          fbb.addOffset(3, groupKeyOffset);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -126,8 +127,8 @@ ModelDefinition getObjectBoxModel() {
 
           final object = USSDExpandedGroupEntity(
               id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
-              groupId:
-                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0),
+              groupKey: const fb.StringReader(asciiOptimization: true)
+                  .vTableGet(buffer, rootOffset, 10, ''),
               expanded: const fb.BoolReader()
                   .vTableGet(buffer, rootOffset, 8, false));
 
@@ -174,13 +175,13 @@ class USSDExpandedGroupEntity_ {
   static final id =
       QueryIntegerProperty<USSDExpandedGroupEntity>(_entities[0].properties[0]);
 
-  /// see [USSDExpandedGroupEntity.groupId]
-  static final groupId =
-      QueryIntegerProperty<USSDExpandedGroupEntity>(_entities[0].properties[1]);
-
   /// see [USSDExpandedGroupEntity.expanded]
   static final expanded =
-      QueryBooleanProperty<USSDExpandedGroupEntity>(_entities[0].properties[2]);
+      QueryBooleanProperty<USSDExpandedGroupEntity>(_entities[0].properties[1]);
+
+  /// see [USSDExpandedGroupEntity.groupKey]
+  static final groupKey =
+      QueryStringProperty<USSDExpandedGroupEntity>(_entities[0].properties[2]);
 }
 
 /// [USSDFavoriteActionEntity] entity fields to define ObjectBox queries.

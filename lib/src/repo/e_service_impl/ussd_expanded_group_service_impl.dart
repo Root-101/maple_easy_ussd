@@ -7,10 +7,14 @@ class USSDExpandedGroupServiceImpl
   USSDExpandedGroupServiceImpl(Store store) : super(store);
 
   @override
-  USSDExpandedGroupEntity? findByGroupId(int groupId) {
-    return box.query(_buildFindByGroupIdQuery(groupId)).build().findUnique();
+  USSDExpandedGroupEntity? findByGroupKey(String groupKey) {
+    return box
+        .query(
+          USSDExpandedGroupEntity_.groupKey.equals(
+            groupKey,
+          ),
+        )
+        .build()
+        .findUnique();
   }
-
-  Condition<USSDExpandedGroupEntity>? _buildFindByGroupIdQuery(int groupId) =>
-      USSDExpandedGroupEntity_.groupId.equals(groupId);
 }

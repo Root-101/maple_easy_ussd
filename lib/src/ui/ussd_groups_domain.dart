@@ -2,43 +2,38 @@ import 'package:flutter/cupertino.dart';
 import 'package:easy_ussd/ussd_exporter.dart';
 
 class USSDGroupsDomain {
-  int groupId;
+  String groupKey;
   StatelessWidget title;
   List<USSDActionWidgetDomain> childs;
 
   USSDGroupsDomain({
-    required this.groupId,
+    required this.groupKey,
     required this.title,
     required this.childs,
   });
 
-  static List<USSDGroupsDomain> GROUPS = [
-    FAVORITOS,
-    CONSULTAS,
-    PAQUETES_LTE,
-    PLANES,
+  //------------------ FAVORITES ------------------\\
+  //Se saca dinamico con cada iteracion por si algo se modifica
+
+  static List<USSDActionWidgetDomain> ACTIONS() => [
+        ...CONSULTAS,
+        ...DATOS_GROUP.expand(
+          (element) => element.childs,
+        ),
+      ];
+
+  //------------------ CONSULTAS ------------------\\
+  //No tiene grupos como tal, son todos los items en una lista
+  static List<USSDActionWidgetDomain> CONSULTAS = [
+    USSDActionWidgetDomain.CONSULTAR_SALDO,
+    USSDActionWidgetDomain.CONSULTAR_BONO,
+    USSDActionWidgetDomain.CONSULTAR_DATOS,
   ];
-  static List<USSDGroupsDomain> GROUPS_REDUCED = GROUPS.sublist(1);
 
-  static List<USSDActionWidgetDomain> ACTIONS() =>
-      GROUPS_REDUCED.expand((element) => element.childs).toList();
-
-  static USSDGroupsDomain FAVORITOS = USSDGroupsDomain(
-    groupId: 0,
-    title: Text("Favoritos"),
-    childs: [],
-  );
-  static USSDGroupsDomain CONSULTAS = USSDGroupsDomain(
-    groupId: 1,
-    title: Text("Consultas"),
-    childs: [
-      USSDActionWidgetDomain.CONSULTAR_SALDO,
-      USSDActionWidgetDomain.CONSULTAR_BONO,
-      USSDActionWidgetDomain.CONSULTAR_DATOS,
-    ],
-  );
+  //------------------ DATOS ------------------\\
+  static List<USSDGroupsDomain> DATOS_GROUP = [PAQUETES_LTE, PLANES];
   static USSDGroupsDomain PAQUETES_LTE = USSDGroupsDomain(
-    groupId: 2,
+    groupKey: "ussd.datos.paquetes_lte",
     title: Text("Paquetes LTE"),
     childs: [
       USSDActionWidgetDomain.COMPRA_DATOS_PAQUETES_LTE_100_C,
@@ -47,7 +42,7 @@ class USSDGroupsDomain {
     ],
   );
   static USSDGroupsDomain PLANES = USSDGroupsDomain(
-    groupId: 3,
+    groupKey: "ussd.datos.planes",
     title: Text("Planes"),
     childs: [
       USSDActionWidgetDomain.COMPRA_PLAN_110_C,

@@ -8,20 +8,20 @@ class USSDExpandedGroupEntity extends BasicEntityObject {
   int id;
 
   @Unique()
-  int groupId;
+  String groupKey;
 
   bool expanded;
 
   //default construct, DON'T REMOVE
   USSDExpandedGroupEntity({
     this.id = 0,
-    this.groupId = 0,
+    this.groupKey = "",
     this.expanded = true,
   });
 
   //the one to use
   USSDExpandedGroupEntity.build({
-    required this.groupId,
+    required this.groupKey,
     required this.expanded,
     this.id = 0,
   });

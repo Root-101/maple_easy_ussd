@@ -3,5 +3,5 @@ import 'package:easy_ussd/ussd_exporter.dart';
 
 abstract class USSDExpandedGroupRepo
     extends CRUDRepository<USSDExpandedGroupDomain> {
-  USSDExpandedGroupDomain findByGroupId(int groupId);
+  USSDExpandedGroupDomain findByGroupKey(String groupKey);
 }
