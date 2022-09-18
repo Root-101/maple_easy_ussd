@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -120,9 +121,9 @@ Widget buildFavorite(
     onPressed: () => controller.changeFavorite(function.action),
     icon: Icon(
       controller.isFavoriteAction(function.action)
-          ? Icons.star
-          : Icons.star_border_outlined,
-      color: Colors.yellowAccent,
+          ? CupertinoIcons.heart_fill
+          : CupertinoIcons.heart,
+      color: Colors.redAccent,
     ),
   );
 }

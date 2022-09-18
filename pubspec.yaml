@@ -32,7 +32,7 @@ dependencies:
 
   #UI
   persistent_bottom_nav_bar: ^5.0.2
-
+  flutter_animator: ^3.2.2
   cupertino_icons: ^1.0.5
 
   #DB
@@ -52,7 +52,6 @@ dev_dependencies:
   #DB code generation
   build_runner: ^2.2.0
   objectbox_generator: ^1.6.0
-
 
   flutter_native_splash: ^2.2.9
   flutter_launcher_icons: ^0.10.0

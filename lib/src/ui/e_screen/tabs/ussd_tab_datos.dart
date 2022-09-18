@@ -10,7 +10,7 @@ class USSDTabDatos {
   static PersistentBottomNavBarItem item = PersistentBottomNavBarItem(
     icon: Icon(CupertinoIcons.shopping_cart),
     title: ("Paquetes"),
-    activeColorPrimary: CupertinoColors.systemPink,
+    activeColorPrimary: CupertinoColors.systemGreen,
     inactiveColorPrimary: CupertinoColors.systemGrey,
   );
 }

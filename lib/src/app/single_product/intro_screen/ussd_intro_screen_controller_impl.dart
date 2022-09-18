@@ -11,12 +11,13 @@ class USSDIntroScreenControllerImpl extends USSDIntroScreenController {
     uc.resetOpenApp();
     Get.offNamed(
       USSDIntroScreenPage.ROUTE_NAME,
-      preventDuplicates: false,//ni idea xq, pero si no, no funciona
+      preventDuplicates: false, //ni idea xq, pero si no, no funciona
     );
   }
 
   @override
   void openApp() {
+    USSDUIModule.permissions();
     uc.openApp();
     update();
   }

@@ -6,8 +6,6 @@ import 'package:permission_handler/permission_handler.dart';
 
 class USSDAppModule {
   static Future init() async {
-    _permissions();
-
     await USSDRepoModule.init();
 
     Get.put<USSDUseCase>(
@@ -22,7 +20,7 @@ class USSDAppModule {
     Get.deleteAll(force: true);
   }
 
-  static void _permissions() async {
+  static void permissions() async {
     Permission.phone.request().then(
       (value) {
         if (PermissionStatus.granted != value) {

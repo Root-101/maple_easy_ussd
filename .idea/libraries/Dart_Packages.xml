@@ -261,6 +261,13 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_animator">
+          <value>
+            <list>
+              <option value="$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/flutter_animator-3.2.2/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_launcher_icons">
           <value>
             <list>
@@ -818,6 +825,7 @@
       <root url="file://$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/file-6.1.4/lib" />
       <root url="file://$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/fixnum-1.0.1/lib" />
       <root url="file://$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/flat_buffers-2.0.5/lib" />
+      <root url="file://$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/flutter_animator-3.2.2/lib" />
       <root url="file://$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.10.0/lib" />
       <root url="file://$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/flutter_native_splash-2.2.9/lib" />
       <root url="file://$USER_HOME$/SDK/FlutterSDK/.pub-cache/hosted/pub.dartlang.org/frontend_server_client-2.1.3/lib" />

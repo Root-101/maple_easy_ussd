@@ -9,7 +9,7 @@ class USSDTabConsultas {
   static PersistentBottomNavBarItem item = PersistentBottomNavBarItem(
     icon: Icon(CupertinoIcons.search_circle),
     title: ("Consultas"),
-    activeColorPrimary: CupertinoColors.activeOrange,
+    activeColorPrimary: CupertinoColors.activeBlue,
     inactiveColorPrimary: CupertinoColors.systemGrey,
   );
 }
