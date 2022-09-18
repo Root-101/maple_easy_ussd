@@ -62,8 +62,8 @@ class USSDActionWidgetDomain {
     title: 'Voz',
   );
 
-  //------------------------------- PLANES -------------------------------\\
-  static USSDActionWidgetDomain _buildPlan({
+  //------------------------------- COMPRA -------------------------------\\
+  static USSDActionWidgetDomain _buildCompra({
     required USSDActionFunctionDomain function,
     required String tilePrice,
     required String tileDescription,
@@ -78,141 +78,109 @@ class USSDActionWidgetDomain {
     );
   }
 
-  static USSDActionWidgetDomain COMPRA_PLAN_110_C = _buildPlan(
+  //------------- PLANES -------------\\
+
+  static USSDActionWidgetDomain COMPRA_PLAN_110_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_PLAN_110_C,
     tilePrice: "\$110",
     tileDescription: "600 MB + 800 MB LTE + 15 min + 20 sms",
   );
-  static USSDActionWidgetDomain COMPRA_PLAN_250_C = _buildPlan(
+  static USSDActionWidgetDomain COMPRA_PLAN_250_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_PLAN_250_C,
     tilePrice: "\$250",
     tileDescription: "1.5 GB + 2 GB LTE + 35 min + 40 sms",
   );
-  static USSDActionWidgetDomain COMPRA_PLAN_500_C = _buildPlan(
+  static USSDActionWidgetDomain COMPRA_PLAN_500_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_PLAN_500_C,
     tilePrice: "\$500",
     tileDescription: "3.5 GB + 4.5 GB LTE + 75 min + 80 sms",
   );
 
-  //------------------------------- SMS -------------------------------\\
-  static USSDActionWidgetDomain _buildSMS({
-    required USSDActionFunctionDomain function,
-    required String tilePrice,
-    required String tileDescription,
-  }) {
-    return USSDActionWidgetDomain(
-      function: function,
-      widget: CompraPlanes(
-        function: function,
-        tilePrice: tilePrice,
-        tileDescription: tileDescription,
-      ),
-    );
-  }
-
-  static USSDActionWidgetDomain COMPRA_SMS_15_C = _buildSMS(
+  //------------- SMS -------------\\
+  static USSDActionWidgetDomain COMPRA_SMS_15_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_SMS_15_C,
     tilePrice: "\$15",
     tileDescription: "20 SMS (1 SMS = \$0.70)",
   );
-  static USSDActionWidgetDomain COMPRA_SMS_30_C = _buildSMS(
+  static USSDActionWidgetDomain COMPRA_SMS_30_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_SMS_30_C,
     tilePrice: "\$30",
     tileDescription: "50 SMS (1 SMS = \$0.60)",
   );
-  static USSDActionWidgetDomain COMPRA_SMS_50_C = _buildSMS(
+  static USSDActionWidgetDomain COMPRA_SMS_50_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_SMS_50_C,
     tilePrice: "\$50",
     tileDescription: "90 SMS (1 SMS = \$0.55)",
   );
-  static USSDActionWidgetDomain COMPRA_SMS_60_C = _buildSMS(
+  static USSDActionWidgetDomain COMPRA_SMS_60_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_SMS_60_C,
     tilePrice: "\$60",
     tileDescription: "120 SMS (1 SMS = \$0.50)",
   );
 
-  //------------------------------- VOZ -------------------------------\\
-  static USSDActionWidgetDomain _buildVoz({
-    required USSDActionFunctionDomain function,
-    required String tilePrice,
-    required String tileDescription,
-  }) {
-    return USSDActionWidgetDomain(
-      function: function,
-      widget: CompraPlanes(
-        function: function,
-        tilePrice: tilePrice,
-        tileDescription: tileDescription,
-      ),
-    );
-  }
-
-  static USSDActionWidgetDomain COMPRA_VOZ_37_50_C = _buildVoz(
+  //------------- VOZ -------------\\
+  static USSDActionWidgetDomain COMPRA_VOZ_37_50_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_VOZ_37_50_C,
     tilePrice: "\$37.50",
     tileDescription: "5 MIN (1 MIN = \$7.50)",
   );
 
-  static USSDActionWidgetDomain COMPRA_VOZ_72_50_C = _buildVoz(
+  static USSDActionWidgetDomain COMPRA_VOZ_72_50_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_VOZ_72_50_C,
     tilePrice: "\$72.50",
     tileDescription: "10 MIN (1 MIN = \$7.25)",
   );
 
-  static USSDActionWidgetDomain COMPRA_VOZ_105_C = _buildVoz(
+  static USSDActionWidgetDomain COMPRA_VOZ_105_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_VOZ_105_C,
     tilePrice: "\$105",
     tileDescription: "15 MIN (1 MIN = \$7)",
   );
 
-  static USSDActionWidgetDomain COMPRA_VOZ_162_50_C = _buildVoz(
+  static USSDActionWidgetDomain COMPRA_VOZ_162_50_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_VOZ_162_50_C,
     tilePrice: "\$162.50",
     tileDescription: "25 MIN (1 MIN = \$6.50)",
   );
 
-  static USSDActionWidgetDomain COMPRA_VOZ_250_C = _buildVoz(
+  static USSDActionWidgetDomain COMPRA_VOZ_250_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_VOZ_250_C,
     tilePrice: "\$250",
     tileDescription: "40 MIN (1 MIN = \$6.25)",
   );
 
-//------------------------------- PAQUETES LTE -------------------------------\\
-  static USSDActionWidgetDomain _buildPaqueteLTE({
-    required USSDActionFunctionDomain function,
-    required String tilePrice,
-    required String tileDescription,
-  }) {
-    return USSDActionWidgetDomain(
-      function: function,
-      widget: CompraPlanes(
-        function: function,
-        tilePrice: tilePrice,
-        tileDescription: tileDescription,
-      ),
-    );
-  }
-
-  static USSDActionWidgetDomain COMPRA_DATOS_PAQUETES_LTE_100_C =
-      _buildPaqueteLTE(
+//------------- PAQUETES LTE -------------\\
+  static USSDActionWidgetDomain COMPRA_DATOS_PAQUETES_LTE_100_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_DATOS_PAQUETES_LTE_100_C,
     tilePrice: "\$100",
     tileDescription: "1 GB LTE (10 MB por cada \$1.00)",
   );
-  static USSDActionWidgetDomain COMPRA_DATOS_PAQUETES_LTE_200_C =
-      _buildPaqueteLTE(
+  static USSDActionWidgetDomain COMPRA_DATOS_PAQUETES_LTE_200_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_DATOS_PAQUETES_LTE_200_C,
     tilePrice: "\$200",
     tileDescription: "2.5 GB LTE (12.5 MB por cada \$1.00)",
   );
-  static USSDActionWidgetDomain COMPRA_DATOS_PAQUETES_LTE_950_C =
-      _buildPaqueteLTE(
+  static USSDActionWidgetDomain COMPRA_DATOS_PAQUETES_LTE_950_C = _buildCompra(
     function: USSDActionFunctionDomain.COMPRA_DATOS_PAQUETES_LTE_950_C,
     tilePrice: "\$950",
     tileDescription: "4 GB + 12 GB LTE (16.8 MB por cada \$1.00)",
   );
+
+//------------- BOLSA -------------\\
+  static USSDActionWidgetDomain COMPRA_DATOS_BOLSA_MENSAJERIA_C = _buildCompra(
+    function: USSDActionFunctionDomain.COMPRA_DATOS_BOLSA_MENSAJERIA_C,
+    tilePrice: "\$25",
+    tileDescription: "600 MB (xxx)",
+  );
+
+  static USSDActionWidgetDomain COMPRA_DATOS_BOLSA_DIARIA_C = _buildCompra(
+    function: USSDActionFunctionDomain.COMPRA_DATOS_BOLSA_DIARIA_C,
+    tilePrice: "\$25",
+    tileDescription: "200 MB LTE (xxx)",
+  );
 }
-//----------------- widgets -----------------\\
+
+//------------------------------------------- widgets -------------------------------------------\\
 
 Widget buildFavorite(
     USSDController controller, USSDActionFunctionDomain function) {

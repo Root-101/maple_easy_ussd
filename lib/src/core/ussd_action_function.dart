@@ -99,4 +99,14 @@ class USSDActionFunctionDomain {
       USSDActionFunctionDomain(
     ActionsUSSD.COMPRA_DATOS_PAQUETES_LTE_950_C,
   );
+
+  //------------------------------- BOLSA -------------------------------\\
+  static USSDActionFunctionDomain COMPRA_DATOS_BOLSA_MENSAJERIA_C =
+      USSDActionFunctionDomain(
+    ActionsUSSD.COMPRA_DATOS_BOLSA_MENSAJERIA_C,
+  );
+  static USSDActionFunctionDomain COMPRA_DATOS_BOLSA_DIARIA_C =
+      USSDActionFunctionDomain(
+    ActionsUSSD.COMPRA_DATOS_BOLSA_DIARIA_C,
+  );
 }

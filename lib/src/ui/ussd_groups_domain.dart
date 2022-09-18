@@ -15,10 +15,11 @@ class USSDGroupsDomain {
   //------------------ FAVORITES ------------------\\
   //Se saca dinamico con cada iteracion por si algo se modifica
 
-  static List<USSDActionWidgetDomain> ACTIONS() => [
+  static List<USSDActionWidgetDomain> ACTIONS() =>
+      [
         ...CONSULTAS,
         ...DATOS_GROUP.expand(
-          (element) => element.childs,
+              (element) => element.childs,
         ),
       ];
 
@@ -78,6 +79,14 @@ class USSDGroupsDomain {
       USSDActionWidgetDomain.COMPRA_PLAN_110_C,
       USSDActionWidgetDomain.COMPRA_PLAN_250_C,
       USSDActionWidgetDomain.COMPRA_PLAN_500_C,
+    ],
+  );
+  static USSDGroupsDomain BOLSA = USSDGroupsDomain(
+    groupKey: "ussd.compras.bolsa",
+    title: Text("Bolsa"),
+    childs: [
+      USSDActionWidgetDomain.COMPRA_DATOS_BOLSA_MENSAJERIA_C,
+      USSDActionWidgetDomain.COMPRA_DATOS_BOLSA_DIARIA_C,
     ],
   );
 }

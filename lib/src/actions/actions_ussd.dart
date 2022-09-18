@@ -16,6 +16,7 @@ class ActionsUSSD {
    voz
    amigo
    plan
+   bolsa
    */
   //------------------------------- CONSULTAS -------------------------------\\
   static ActionsUSSD CONSULTAR_SALDO = ActionsUSSD(
@@ -169,14 +170,23 @@ class ActionsUSSD {
     ussd: "*133*5*3*1#", //INCLUYE CONFIRMACION
   );
 
+  //------------------------------- BOLSA -------------------------------\\
+  ///bolsa 600MB x 25$
+  static ActionsUSSD COMPRA_DATOS_BOLSA_MENSAJERIA_C = ActionsUSSD(
+    text: "Comprar bolsa de mensajería",
+    key: "key.bolsa.mensajeria",
+    ussd: "*133*1*2*1#", //INCLUYE CONFIRMACION
+  );
+
+  ///bolsa diaria 200MB LTE x 25$
+  static ActionsUSSD COMPRA_DATOS_BOLSA_DIARIA_C = ActionsUSSD(
+    text: "Comprar bolsa diaria",
+    key: "key.bolsa.diaria",
+    ussd: "*133*1*3*1#", //INCLUYE CONFIRMACION
+  );
+
   //------------------------------- XXX -------------------------------\\
   static String COMPRA_DATOS_TARIFA_CONSUMO_HABILITAR() => "*133*1*1*1#";
 
   static String COMPRA_DATOS_TARIFA_CONSUMO_DESHABILITAR() => "*133*1*1*2#";
-
-  ///bolsa 600MB x 25$
-  static String COMPRA_DATOS_BOLSA_MENSAJERIA() => "*133*1*2#";
-
-  ///bolsa diaria 200MB LTE x 25$
-  static String COMPRA_DATOS_BOLSA_DIARIA() => "*133*1*3#";
 }
