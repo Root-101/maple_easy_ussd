@@ -7,4 +7,8 @@ class USSDUIModule {
 
     Get.put<USSDController>(USSDControllerImpl());
   }
+
+  static void permissions() async {
+    USSDAppModule.permissions();
+  }
 }

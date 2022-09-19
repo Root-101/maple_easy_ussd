@@ -1,3 +1,4 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
@@ -13,34 +14,43 @@ void main() {
 class USSDApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Fácil *133#',
-      //--------------------- <THEAMING> -----------------------------------
-      darkTheme: ThemeData(
-        primarySwatch: Colors.purple,
-        accentColor: Colors.deepOrange,
+    return ThemeProvider(
+      initTheme: ThemeData(
+        brightness: Brightness.light,
+        primarySwatch: Colors.blue,
       ),
-      //--------------------- </THEAMING> -----------------------------------
-      //--------------------- <PAGINATION> -----------------------------------
-      initialRoute: USSDIntroScreenPage.ROUTE_NAME,
-      getPages: [
-        GetPage(
-          name: USSDIntroScreenPage.ROUTE_NAME,
-          page: () => USSDIntroScreenPage(),
-          transition: Transition.leftToRight,
-        ),
-        GetPage(
-          name: USSDSingleProductMainScreen.ROUTE_NAME,
-          page: () => USSDSingleProductMainScreen(),
-          transition: Transition.rightToLeft,
-        ),
-      ],
-      /*unknownRoute: GetPage(
-          name: UnknownRouteScreen.ROUTE_NAME,
-          page: () => UnknownRouteScreen()),*/
-      //--------------------- </PAGINATION> -----------------------------------
+      builder: (context, myTheme) {
+        return _app(myTheme);
+      },
     );
   }
+}
+
+Widget _app(ThemeData theme) {
+  return GetMaterialApp(
+    title: 'Fácil *133#',
+    //--------------------- <THEAMING> -----------------------------------
+    theme: theme,
+    //--------------------- </THEAMING> -----------------------------------
+    //--------------------- <PAGINATION> -----------------------------------
+    initialRoute: USSDIntroScreenPage.ROUTE_NAME,
+    getPages: [
+      GetPage(
+        name: USSDIntroScreenPage.ROUTE_NAME,
+        page: () => USSDIntroScreenPage(),
+        transition: Transition.leftToRight,
+      ),
+      GetPage(
+        name: USSDSingleProductMainScreen.ROUTE_NAME,
+        page: () => USSDSingleProductMainScreen(),
+        transition: Transition.rightToLeft,
+      ),
+    ],
+    /*unknownRoute: GetPage(
+          name: UnknownRouteScreen.ROUTE_NAME,
+          page: () => UnknownRouteScreen()),*/
+    //--------------------- </PAGINATION> -----------------------------------
+  );
 }
 
 class SplashScreen extends StatelessWidget {

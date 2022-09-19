@@ -7,7 +7,7 @@ abstract class USSDUseCase {
 
   bool isFavorite(ActionsUSSD action);
 
-  void changeExpansion(int groupId, bool expansion);
+  void changeExpansion(String groupKey, bool expansion);
 
-  bool isExpandedGroup(int groupId);
+  bool isExpandedGroup(String groupKey);
 }

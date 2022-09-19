@@ -11,11 +11,11 @@ class USSDExpandedGroupRepoImpl extends DefaultCRUDRepo<
             converter: USSDExpandedGroupConverter.converter);
 
   @override
-  USSDExpandedGroupDomain findByGroupId(int groupId) {
-    USSDExpandedGroupEntity? finded = externalRepo.findByGroupId(groupId);
+  USSDExpandedGroupDomain findByGroupKey(String groupKey) {
+    USSDExpandedGroupEntity? finded = externalRepo.findByGroupKey(groupKey);
 
     return finded == null
-        ? USSDExpandedGroupDomain.build(groupId: groupId)
+        ? USSDExpandedGroupDomain.build(groupKey: groupKey)
         : converter.toDomain(finded);
   }
 }
@@ -31,7 +31,7 @@ class USSDExpandedGroupConverter extends GeneralConverter<
   USSDExpandedGroupDomain toDomain(USSDExpandedGroupEntity entity) {
     return USSDExpandedGroupDomain.build(
       id: entity.id,
-      groupId: entity.groupId,
+      groupKey: entity.groupKey,
       expanded: entity.expanded,
     );
   }
@@ -40,7 +40,7 @@ class USSDExpandedGroupConverter extends GeneralConverter<
   USSDExpandedGroupEntity toEntity(USSDExpandedGroupDomain domain) {
     return USSDExpandedGroupEntity(
       id: domain.id,
-      groupId: domain.groupId,
+      groupKey: domain.groupKey,
       expanded: domain.expanded,
     );
   }

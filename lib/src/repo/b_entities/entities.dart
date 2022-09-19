@@ -8,20 +8,20 @@ class USSDExpandedGroupEntity extends BasicEntityObject {
   int id;
 
   @Unique()
-  int groupId;
+  String groupKey;
 
   bool expanded;
 
   //default construct, DON'T REMOVE
   USSDExpandedGroupEntity({
     this.id = 0,
-    this.groupId = 0,
+    this.groupKey = "",
     this.expanded = true,
   });
 
   //the one to use
   USSDExpandedGroupEntity.build({
-    required this.groupId,
+    required this.groupKey,
     required this.expanded,
     this.id = 0,
   });
@@ -37,16 +37,20 @@ class USSDFavoriteActionEntity extends BasicEntityObject {
 
   bool favorite;
 
+  DateTime lastUpdatedOn;
+
   //default construct, DON'T REMOVE
   USSDFavoriteActionEntity({
-    this.id = 0,
-    this.actionKey = "",
+    required this.actionKey,
+    required this.lastUpdatedOn,
     this.favorite = false,
+    this.id = 0,
   });
 
   //the one to use
   USSDFavoriteActionEntity.build({
     required this.actionKey,
+    required this.lastUpdatedOn,
     this.favorite = false,
     this.id = 0,
   });

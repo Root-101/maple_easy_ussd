@@ -15,7 +15,10 @@ class USSDFavoriteActionRepoImpl extends DefaultCRUDRepo<
     USSDFavoriteActionEntity? finded = externalRepo.findByActionKey(actionKey);
 
     return finded == null
-        ? USSDFavoriteActionDomain.build(actionKey: actionKey)
+        ? USSDFavoriteActionDomain.build(
+            actionKey: actionKey,
+            lastUpdatedOn: DateTime.now(),
+          )
         : converter.toDomain(finded);
   }
 
@@ -39,6 +42,7 @@ class USSDFavoriteActionConverter extends GeneralConverter<
   USSDFavoriteActionDomain toDomain(USSDFavoriteActionEntity entity) {
     return USSDFavoriteActionDomain.build(
       id: entity.id,
+      lastUpdatedOn: entity.lastUpdatedOn,
       actionKey: entity.actionKey,
       favorite: entity.favorite,
     );
@@ -48,6 +52,7 @@ class USSDFavoriteActionConverter extends GeneralConverter<
   USSDFavoriteActionEntity toEntity(USSDFavoriteActionDomain domain) {
     return USSDFavoriteActionEntity(
       id: domain.id,
+      lastUpdatedOn: domain.lastUpdatedOn,
       actionKey: domain.actionKey,
       favorite: domain.favorite,
     );

@@ -1,76 +1,64 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:easy_ussd/ussd_exporter.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class USSDMainBody extends GetView<USSDController> {
-  const USSDMainBody({Key? key}) : super(key: key);
+  PersistentTabController _controller =
+      PersistentTabController(initialIndex: 0);
+
+  USSDMainBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<USSDController>(builder: (_) {
-      return SingleChildScrollView(
-        child: Container(
-          child: ExpansionPanelList(
-            expansionCallback: (int index, bool isExpanded) {
-              controller.changeExpansion(index, isExpanded);
-            },
-            children: [
-              buildFavorite(controller),
-              ...controller.itemsToExpand
-                  .map(
-                    (item) => ExpansionPanel(
-                      canTapOnHeader: true,
-                      headerBuilder: (BuildContext context, bool isExpanded) {
-                        return ListTile(
-                          leading: Text('${item.groupId}'),
-                          title: item.title,
-                        );
-                      },
-                      body: Column(
-                        children: [
-                          ...item.childs
-                              .map(
-                                (child) => child.widget,
-                              )
-                              .toList(),
-                        ],
-                      ),
-                      isExpanded: controller.isExpandedGroup(item),
-                    ),
-                  )
-                  .toList(),
-            ],
-          ),
+    return PersistentTabView(
+      context,
+      controller: _controller,
+      screens: _buildScreens(),
+      items: _navBarsItems(),
+      confineInSafeArea: true,
+      backgroundColor: Colors.white,
+      // Default is Colors.white.
+      resizeToAvoidBottomInset: true,
+      // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
+      decoration: NavBarDecoration(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(10),
         ),
-      );
-    });
+        colorBehindNavBar: Colors.white,
+      ),
+      popAllScreensOnTapOfSelectedTab: true,
+      popActionScreens: PopActionScreensType.all,
+      itemAnimationProperties: ItemAnimationProperties(
+        duration: Duration(milliseconds: 200),
+        curve: Curves.ease,
+      ),
+      screenTransitionAnimation: ScreenTransitionAnimation(
+        animateTabTransition: true,
+        curve: Curves.ease,
+        duration: Duration(milliseconds: 200),
+      ),
+      navBarStyle:
+          NavBarStyle.style1, // Choose the nav bar style with this property.
+    );
   }
 
-  ExpansionPanel buildFavorite(USSDController controller) {
-    USSDGroupsDomain favoriteGroup = controller.items[0];
-    List<USSDActionWidgetDomain> favorites = controller.findFavorites();
-    return ExpansionPanel(
-      canTapOnHeader: true,
-      headerBuilder: (BuildContext context, bool isExpanded) {
-        return ListTile(
-          leading: Text('${favoriteGroup.groupId}'),
-          title: favoriteGroup.title,
-        );
-      },
-      body: favorites.isEmpty
-          ? Center(
-              child: Text('No hay favoritos'),
-            )
-          : Column(
-              children: [
-                ...favorites
-                    .map(
-                      (child) => child.widget,
-                    )
-                    .toList(),
-              ],
-            ),
-      isExpanded: controller.isExpandedGroup(controller.items[0]),
-    );
+  List<PersistentBottomNavBarItem> _navBarsItems() {
+    return [
+      USSDTabFavorite.item,
+      USSDTabConsultas.item,
+      USSDTabDatos.item,
+      //USSDTabSaldo.item,
+    ];
+  }
+
+  List<Widget> _buildScreens() {
+    return [
+      USSDTabFavorite.screen,
+      USSDTabConsultas.screen,
+      USSDTabDatos.screen,
+      //USSDTabSaldo.screen,
+    ];
   }
 }

@@ -3,7 +3,7 @@ description: Aplicacion para facilitar el uso de los códigos USSD de ETECSA par
 
 publish_to: 'none'
 
-version: 1.1.0-SNAPSHOT.20220916
+version: 1.2.0-SNAPSHOT.20220918
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
@@ -28,7 +28,11 @@ dependencies:
   #Splash, intro, tutorials
   introduction_screen: ^3.0.1
   flutter_native_splash: ^2.2.9
+  animated_theme_switcher: ^2.0.5
 
+  #UI
+  persistent_bottom_nav_bar: ^5.0.2
+  flutter_animator: ^3.2.2
   cupertino_icons: ^1.0.5
 
   #DB
@@ -40,9 +44,15 @@ dependencies:
 
   #Utils
   permission_handler: ^10.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  #DB code generation
+  build_runner: ^2.2.0
+  objectbox_generator: ^1.6.0
+
   flutter_native_splash: ^2.2.9
   flutter_launcher_icons: ^0.10.0
   #flutter_app_name: ^0.1.1
@@ -67,9 +77,6 @@ flutter_icons:
 #  name: "Maple"
 
 
-  #DB code generation
-  build_runner: ^2.2.0
-  objectbox_generator: ^1.6.0
 
 flutter:
   uses-material-design: true

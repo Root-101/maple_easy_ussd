@@ -3,5 +3,5 @@ import 'package:easy_ussd/ussd_exporter.dart';
 
 abstract class USSDExpandedGroupService
     extends ObjectBoxCRUDRepositoryExternal<USSDExpandedGroupEntity> {
-  USSDExpandedGroupEntity? findByGroupId(int groupId);
+  USSDExpandedGroupEntity? findByGroupKey(String groupKey);
 }
