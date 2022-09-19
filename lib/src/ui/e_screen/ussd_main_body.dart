@@ -47,6 +47,7 @@ class USSDMainBody extends GetView<USSDController> {
       USSDTabFavorite.item,
       USSDTabConsultas.item,
       USSDTabDatos.item,
+      USSDTabSaldo.item,
     ];
   }
 
@@ -55,6 +56,7 @@ class USSDMainBody extends GetView<USSDController> {
       USSDTabFavorite.screen,
       USSDTabConsultas.screen,
       USSDTabDatos.screen,
+      USSDTabSaldo.screen,
     ];
   }
 }
