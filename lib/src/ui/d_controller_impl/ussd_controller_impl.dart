@@ -29,12 +29,16 @@ class USSDControllerImpl extends USSDController {
   @override
   List<USSDActionWidgetDomain> findFavorites() {
     List<String> favoriteKeys = uc.favoritesKeys();
-
+    print(favoriteKeys);
     List<USSDActionWidgetDomain> allActions = USSDGroupsDomain.ACTIONS();
 
-    allActions.removeWhere(
-        (element) => !favoriteKeys.contains(element.function.action.key));
+    List<USSDActionWidgetDomain> fav = [];
 
-    return allActions;
+    favoriteKeys.forEach((key) {
+      fav.add(
+          allActions.firstWhere((action) => key == action.function.action.key));
+    });
+
+    return fav;
   }
 }

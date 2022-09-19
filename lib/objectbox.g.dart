@@ -47,7 +47,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(2, 8629747884124646899),
       name: 'USSDFavoriteActionEntity',
-      lastPropertyId: const IdUid(3, 6692542786471608608),
+      lastPropertyId: const IdUid(5, 5076049528668474780),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -65,6 +65,11 @@ final _entities = <ModelEntity>[
             id: const IdUid(3, 6692542786471608608),
             name: 'favorite',
             type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 5076049528668474780),
+            name: 'lastUpdatedOn',
+            type: 10,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -97,7 +102,7 @@ ModelDefinition getObjectBoxModel() {
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
       retiredIndexUids: const [7015419465327010104],
-      retiredPropertyUids: const [1017336373897191586],
+      retiredPropertyUids: const [1017336373897191586, 6376580609029143801],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -144,10 +149,11 @@ ModelDefinition getObjectBoxModel() {
         },
         objectToFB: (USSDFavoriteActionEntity object, fb.Builder fbb) {
           final actionKeyOffset = fbb.writeString(object.actionKey);
-          fbb.startTable(4);
+          fbb.startTable(6);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, actionKeyOffset);
           fbb.addBool(2, object.favorite);
+          fbb.addInt64(4, object.lastUpdatedOn.millisecondsSinceEpoch);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -156,11 +162,13 @@ ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
 
           final object = USSDFavoriteActionEntity(
-              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
               actionKey: const fb.StringReader(asciiOptimization: true)
                   .vTableGet(buffer, rootOffset, 6, ''),
-              favorite: const fb.BoolReader()
-                  .vTableGet(buffer, rootOffset, 8, false));
+              lastUpdatedOn: DateTime.fromMillisecondsSinceEpoch(
+                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 12, 0)),
+              favorite:
+                  const fb.BoolReader().vTableGet(buffer, rootOffset, 8, false),
+              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0));
 
           return object;
         })
@@ -197,4 +205,8 @@ class USSDFavoriteActionEntity_ {
   /// see [USSDFavoriteActionEntity.favorite]
   static final favorite = QueryBooleanProperty<USSDFavoriteActionEntity>(
       _entities[1].properties[2]);
+
+  /// see [USSDFavoriteActionEntity.lastUpdatedOn]
+  static final lastUpdatedOn = QueryIntegerProperty<USSDFavoriteActionEntity>(
+      _entities[1].properties[3]);
 }

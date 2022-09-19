@@ -7,13 +7,16 @@ class USSDFavoriteActionDomain extends BasicDomainObject {
 
   bool favorite;
 
+  DateTime lastUpdatedOn;
+
   @override
   String toString() {
-    return 'USSDFavoriteActionDomain{id: $id, actionKey: $actionKey, favorite: $favorite}';
-  } //the one to use
+    return 'USSDFavoriteActionDomain{id: $id, actionKey: $actionKey, favorite: $favorite, lastUpdatedOn: $lastUpdatedOn}';
+  }
 
   USSDFavoriteActionDomain.build({
     required this.actionKey,
+    required this.lastUpdatedOn,
     this.favorite = false,
     this.id = 0,
   });

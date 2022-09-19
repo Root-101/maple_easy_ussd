@@ -11,12 +11,19 @@ class USSDUseCaseImpl extends USSDUseCase {
     USSDFavoriteActionDomain domain =
         _favoriteActionRepo.findByActionKey(action.key);
     domain.favorite = !domain.favorite;
+    domain.lastUpdatedOn = DateTime.now();
+
     _favoriteActionRepo.edit(domain);
   }
 
   @override
   List<String> favoritesKeys() {
-    return _favoriteActionRepo.findFavorites().map((e) => e.actionKey).toList();
+    List<USSDFavoriteActionDomain> favorites =
+        _favoriteActionRepo.findFavorites();
+
+    favorites.sort((a, b) => a.lastUpdatedOn.compareTo(b.lastUpdatedOn));
+
+    return favorites.map((e) => e.actionKey).toList();
   }
 
   @override
@@ -34,7 +41,8 @@ class USSDUseCaseImpl extends USSDUseCase {
 
   @override
   void changeExpansion(String groupKey, bool expansion) {
-    USSDExpandedGroupDomain domain = _expandedGroupRepo.findByGroupKey(groupKey);
+    USSDExpandedGroupDomain domain =
+        _expandedGroupRepo.findByGroupKey(groupKey);
     domain.expanded = expansion;
     _expandedGroupRepo.edit(domain);
   }

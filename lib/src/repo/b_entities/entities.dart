@@ -37,16 +37,20 @@ class USSDFavoriteActionEntity extends BasicEntityObject {
 
   bool favorite;
 
+  DateTime lastUpdatedOn;
+
   //default construct, DON'T REMOVE
   USSDFavoriteActionEntity({
-    this.id = 0,
-    this.actionKey = "",
+    required this.actionKey,
+    required this.lastUpdatedOn,
     this.favorite = false,
+    this.id = 0,
   });
 
   //the one to use
   USSDFavoriteActionEntity.build({
     required this.actionKey,
+    required this.lastUpdatedOn,
     this.favorite = false,
     this.id = 0,
   });

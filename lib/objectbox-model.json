@@ -31,7 +31,7 @@
     },
     {
       "id": "2:8629747884124646899",
-      "lastPropertyId": "3:6692542786471608608",
+      "lastPropertyId": "5:5076049528668474780",
       "name": "USSDFavoriteActionEntity",
       "properties": [
         {
@@ -51,6 +51,11 @@
           "id": "3:6692542786471608608",
           "name": "favorite",
           "type": 1
+        },
+        {
+          "id": "5:5076049528668474780",
+          "name": "lastUpdatedOn",
+          "type": 10
         }
       ],
       "relations": []
@@ -67,7 +72,8 @@
     7015419465327010104
   ],
   "retiredPropertyUids": [
-    1017336373897191586
+    1017336373897191586,
+    6376580609029143801
   ],
   "retiredRelationUids": [],
   "version": 1
