@@ -1,5 +1,6 @@
 import 'package:easy_ussd/ussd_exporter.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
@@ -19,10 +20,17 @@ class USSDTabConsultasScreen extends GetView<USSDController> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: USSDGroupsDomain.CONSULTAS.map((e) => e.widget).toList(),
-      ),
+    return CustomScrollView(
+      slivers: [
+        USSDSliverAppBar(
+          title: 'Consultas',
+        ),
+        SliverList(
+          delegate: SliverChildListDelegate.fixed(
+            USSDGroupsDomain.CONSULTAS.map((e) => e.widget).toList(),
+          ),
+        ),
+      ],
     );
   }
 }

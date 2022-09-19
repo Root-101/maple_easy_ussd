@@ -21,38 +21,44 @@ class USSDTabDatosScreen extends GetView<USSDController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<USSDController>(builder: (_) {
-      return SingleChildScrollView(
-        child: Container(
-          child: ExpansionPanelList(
-            expansionCallback: (int index, bool isExpanded) {
-              controller.changeExpansion(
-                  USSDGroupsDomain.DATOS_GROUP[index], isExpanded);
-            },
-            children: USSDGroupsDomain.DATOS_GROUP
-                .map(
-                  (item) => ExpansionPanel(
-                    canTapOnHeader: true,
-                    headerBuilder: (BuildContext context, bool isExpanded) {
-                      return ListTile(
-                        leading: Icon(Icons.ac_unit),
-                        title: item.title,
-                      );
-                    },
-                    body: Column(
-                      children: [
-                        ...item.childs
-                            .map(
-                              (child) => child.widget,
-                            )
-                            .toList(),
-                      ],
-                    ),
-                    isExpanded: controller.isExpandedGroup(item),
-                  ),
-                )
-                .toList(),
+      return CustomScrollView(
+        slivers: [
+          USSDSliverAppBar(
+            title: 'Paquetes',
           ),
-        ),
+          //el wrap para ponerlo dentro del scroll
+          SliverToBoxAdapter(
+            child: ExpansionPanelList(
+              expansionCallback: (int index, bool isExpanded) {
+                controller.changeExpansion(
+                    USSDGroupsDomain.DATOS_GROUP[index], isExpanded);
+              },
+              children: USSDGroupsDomain.DATOS_GROUP
+                  .map(
+                    (item) => ExpansionPanel(
+                      canTapOnHeader: true,
+                      headerBuilder: (BuildContext context, bool isExpanded) {
+                        return ListTile(
+                          leading: Icon(Icons.ac_unit),
+                          title: item.title,
+                        );
+                      },
+                      body: Column(
+                        children: [
+                          ...item.childs
+                              .map(
+                                (child) => child.widget,
+                              )
+                              .toList(),
+                        ],
+                      ),
+                      isExpanded: controller.isExpandedGroup(item),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+        ],
       );
     });
   }

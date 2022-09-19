@@ -40,9 +40,6 @@ class USSDMainBody extends GetView<USSDController> {
       navBarStyle:
           NavBarStyle.style1, // Choose the nav bar style with this property.
     );
-
-
-
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {

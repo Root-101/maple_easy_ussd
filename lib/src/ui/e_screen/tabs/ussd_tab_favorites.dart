@@ -31,23 +31,28 @@ class USSDTabFavoriteScreen extends GetView<USSDController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<USSDController>(builder: (_) {
-      List<USSDActionWidgetDomain> favorites = controller.findFavorites();
-      return Container(
-        child: favorites.isEmpty
-            ? Center(
-                child: Text('No hay favoritos'),
-              )
-            : Column(
-                children: [
-                  ...favorites
-                      .map(
-                        (child) => child.widget,
-                      )
-                      .toList(),
-                ],
-              ),
-      );
-    });
+    return GetBuilder<USSDController>(
+      builder: (_) {
+        List<USSDActionWidgetDomain> favorites = controller.findFavorites();
+        return CustomScrollView(
+          slivers: [
+            USSDSliverAppBar(
+              title: 'Favoritos',
+            ),
+            favorites.isEmpty
+                ? SliverFillRemaining(
+                    child: Center(
+                      child: Text('No hay favoritos'),
+                    ),
+                  )
+                : SliverList(
+                    delegate: SliverChildListDelegate.fixed(
+                      favorites.map((child) => child.widget).toList(),
+                    ),
+                  ),
+          ],
+        );
+      },
+    );
   }
 }
