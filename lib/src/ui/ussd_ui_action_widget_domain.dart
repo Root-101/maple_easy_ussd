@@ -182,19 +182,30 @@ class USSDActionWidgetDomain {
 
 //------------------------------------------- widgets -------------------------------------------\\
 
-Widget buildFavorite(
-    USSDController controller, USSDActionFunctionDomain function) {
-  const Color? heartColor = Colors.redAccent;
-  return IconButton(
-    splashColor: heartColor,
-    onPressed: () => controller.changeFavorite(function.action),
-    icon: Icon(
-      controller.isFavoriteAction(function.action)
-          ? CupertinoIcons.heart_fill
-          : CupertinoIcons.heart,
-      color: heartColor,
-    ),
-  );
+class Favorite extends GetView<USSDController> {
+  static Color? heartColor = Colors.redAccent;
+
+  USSDActionFunctionDomain function;
+
+  Favorite(this.function);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      splashColor: heartColor,
+      onPressed: () => controller.changeFavorite(function.action),
+      icon: GetBuilder<USSDController>(
+          id: USSDController.UPDATE_ID_FAVORITE,
+          builder: (_) {
+            return Icon(
+              controller.isFavoriteAction(function.action)
+                  ? CupertinoIcons.heart_fill
+                  : CupertinoIcons.heart,
+              color: heartColor,
+            );
+          }),
+    );
+  }
 }
 
 class Consulta extends GetView<USSDController> {
@@ -209,29 +220,26 @@ class Consulta extends GetView<USSDController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<USSDController>(builder: (_) {
-      return ListTile(
-        title: Text(
-          function.action.text,
-        ),
-        onTap: () async {
-          context.loaderOverlay.show();
-          String? resp = await function.execute();
-          AwesomeDialog(
-            context: context,
-            dialogType: DialogType.success,
-            title: '$title',
-            desc: '$resp',
-            btnOkOnPress: () {},
-          )..show();
-          context.loaderOverlay.hide();
-        },
-        trailing: buildFavorite(
-          controller,
-          function,
-        ),
-      );
-    });
+    return ListTile(
+      title: Text(
+        function.action.text,
+      ),
+      onTap: () async {
+        context.loaderOverlay.show();
+        String? resp = await function.execute();
+        AwesomeDialog(
+          context: context,
+          dialogType: DialogType.success,
+          title: '$title',
+          desc: '$resp',
+          btnOkOnPress: () {},
+        )..show();
+        context.loaderOverlay.hide();
+      },
+      trailing: Favorite(
+        function,
+      ),
+    );
   }
 }
 
@@ -249,81 +257,78 @@ class CompraPlanes extends GetView<USSDController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<USSDController>(builder: (_) {
-      return ListTile(
-        leading: CircleAvatar(
-          child: Text(tilePrice),
-          backgroundColor: Colors.deepPurple,
+    return ListTile(
+      leading: CircleAvatar(
+        child: Text(tilePrice),
+        backgroundColor: Colors.deepPurple,
+      ),
+      trailing: Favorite(
+        function,
+      ),
+      title: Text(
+        function.action.text,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
         ),
-        trailing: buildFavorite(
-          controller,
-          function,
-        ),
-        title: Text(
-          function.action.text,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        subtitle: Text(
-          tileDescription,
-          style: TextStyle(color: Colors.grey),
-        ),
-        onTap: () {
-          AwesomeDialog(
-            context: context,
-            dialogType: DialogType.warning,
-            body: Center(
-              child: Column(
-                children: [
-                  Text(
-                    'Confirmación',
-                    textAlign: TextAlign.center,
-                    style: Get.textTheme.headline6,
-                  ),
-                  const SizedBox(
-                    height: 10.0,
-                  ),
-                  Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(text: 'Seguro desea comprar el plan de '),
-                        TextSpan(
-                          text: '$tileDescription ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+      ),
+      subtitle: Text(
+        tileDescription,
+        style: TextStyle(color: Colors.grey),
+      ),
+      onTap: () {
+        AwesomeDialog(
+          context: context,
+          dialogType: DialogType.warning,
+          body: Center(
+            child: Column(
+              children: [
+                Text(
+                  'Confirmación',
+                  textAlign: TextAlign.center,
+                  style: Get.textTheme.headline6,
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(text: 'Seguro desea comprar el plan de '),
+                      TextSpan(
+                        text: '$tileDescription ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                        TextSpan(
-                          text: 'por ',
-                        ),
-                        TextSpan(
-                          text: '$tilePrice.',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
+                      ),
+                      TextSpan(
+                        text: 'por ',
+                      ),
+                      TextSpan(
+                        text: '$tilePrice.',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      )
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            btnOkOnPress: () async {
-              context.loaderOverlay.show();
-              String resp = await function.execute();
-              AwesomeDialog(
-                context: context,
-                dialogType: DialogType.info,
-                title: 'Compra de plan.',
-                desc: '$resp',
-                btnOkColor: Colors.blue,
-                btnOkOnPress: () {},
-              )..show();
-              context.loaderOverlay.hide();
-            },
-            btnCancelOnPress: () {},
-          )..show();
-        },
-      );
-    });
+          ),
+          btnOkOnPress: () async {
+            context.loaderOverlay.show();
+            String resp = await function.execute();
+            AwesomeDialog(
+              context: context,
+              dialogType: DialogType.info,
+              title: 'Compra de plan.',
+              desc: '$resp',
+              btnOkColor: Colors.blue,
+              btnOkOnPress: () {},
+            )..show();
+            context.loaderOverlay.hide();
+          },
+          btnCancelOnPress: () {},
+        )..show();
+      },
+    );
   }
 }

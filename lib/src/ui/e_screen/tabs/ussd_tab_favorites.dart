@@ -11,15 +11,17 @@ class USSDTabFavorite {
   static Widget screen = USSDTabFavoriteScreen();
 
   static PersistentBottomNavBarItem item = PersistentBottomNavBarItem(
-    icon: GetBuilder<USSDController>(builder: (_) {
-      return HeartBeat(
-        //siempre genera una llave unica para que actualize, con la misma llave considera el mismo widget y no actualiza
-        key: UniqueKey(),
-        child: Icon(
-          CupertinoIcons.heart_fill,
-        ),
-      );
-    }),
+    icon: GetBuilder<USSDController>(
+        id: USSDController.UPDATE_ID_FAVORITE,
+        builder: (_) {
+          return HeartBeat(
+            //siempre genera una llave unica para que actualize, con la misma llave considera el mismo widget y no actualiza
+            key: UniqueKey(),
+            child: Icon(
+              CupertinoIcons.heart_fill,
+            ),
+          );
+        }),
     title: ("Favoritos"),
     activeColorPrimary: Colors.redAccent,
     inactiveColorPrimary: CupertinoColors.systemGrey,
@@ -32,6 +34,7 @@ class USSDTabFavoriteScreen extends GetView<USSDController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<USSDController>(
+      id: USSDController.UPDATE_ID_FAVORITE,
       builder: (_) {
         List<USSDActionWidgetDomain> favorites = controller.findFavorites();
         return CustomScrollView(

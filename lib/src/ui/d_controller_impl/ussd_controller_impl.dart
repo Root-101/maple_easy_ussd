@@ -7,7 +7,7 @@ class USSDControllerImpl extends USSDController {
   @override
   void changeExpansion(USSDGroupsDomain item, bool isExpanded) {
     uc.changeExpansion(item.groupKey, !isExpanded);
-    update();
+    update([USSDController.UPDATE_ID_EXPANSION]);
   }
 
   @override
@@ -23,7 +23,7 @@ class USSDControllerImpl extends USSDController {
   @override
   void changeFavorite(ActionsUSSD action) {
     uc.changeFavorite(action);
-    update();
+    update([USSDController.UPDATE_ID_FAVORITE]);
   }
 
   @override
