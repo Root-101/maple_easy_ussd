@@ -185,6 +185,28 @@ class ActionsUSSD {
     ussd: "*133*1*3*1#", //INCLUYE CONFIRMACION
   );
 
+  //------------------------------- BOLSA -------------------------------\\
+  ///transferir saldo
+  static ActionsUSSD TRANSFERIR_SALDO(String numero, String clave, String monto) =>
+      ActionsUSSD(
+        text: "Transferir saldo",
+        key: "key.saldo.transferir_saldo",
+        ussd: "*234*1*$numero*$clave*$monto#", //SIN CONFIRMACION
+      );
+
+  static ActionsUSSD CAMBIO_CLAVE(String claveVieja, String claveNueva) =>
+      ActionsUSSD(
+        text: "Cabiar clave",
+        key: "key.saldo.cambio_clave",
+        ussd: "*234*2*$claveVieja*$claveNueva#", //INCLUYE CONFIRMACION
+      );
+
+  static ActionsUSSD RECARGAR_SADO(String numeroTarjeta) => ActionsUSSD(
+        text: "Recargar saldo",
+        key: "key.saldo.recargar_saldo",
+        ussd: "*662*$numeroTarjeta#", //??? CONFIRMACION
+      );
+
   //------------------------------- XXX -------------------------------\\
   static String COMPRA_DATOS_TARIFA_CONSUMO_HABILITAR() => "*133*1*1*1#";
 

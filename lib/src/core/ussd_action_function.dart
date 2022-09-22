@@ -109,4 +109,26 @@ class USSDActionFunctionDomain {
       USSDActionFunctionDomain(
     ActionsUSSD.COMPRA_DATOS_BOLSA_DIARIA_C,
   );
+
+  //------------------------------- SALDO -------------------------------\\
+  static USSDActionFunctionDomain TRANSFERIR_SALDO = USSDActionFunctionDomain(
+    ActionsUSSD.TRANSFERIR_SALDO('', '', ''),
+  );
+
+  static USSDActionFunctionDomain TRANSFERIR_SALDO_F(
+          String numero, String clave, String monto) =>
+      USSDActionFunctionDomain(
+        ActionsUSSD.TRANSFERIR_SALDO(numero, clave, monto),
+      );
+
+  static USSDActionFunctionDomain CAMBIO_CLAVE(
+          String claveVieja, String claveNueva) =>
+      USSDActionFunctionDomain(
+        ActionsUSSD.CAMBIO_CLAVE(claveVieja, claveNueva),
+      );
+
+  static USSDActionFunctionDomain RECARGAR_SADO(String numeroTarjeta) =>
+      USSDActionFunctionDomain(
+        ActionsUSSD.RECARGAR_SADO(numeroTarjeta),
+      );
 }

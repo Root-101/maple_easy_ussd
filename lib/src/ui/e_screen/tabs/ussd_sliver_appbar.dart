@@ -17,10 +17,11 @@ class USSDSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      elevation: 3,
+      forceElevated: true,
+      elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(10),
+          bottom: Radius.circular(15),
         ),
       ),
       actions: _actions(),

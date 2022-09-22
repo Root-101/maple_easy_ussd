@@ -15,12 +15,12 @@ class USSDGroupsDomain {
   //------------------ FAVORITES ------------------\\
   //Se saca dinamico con cada iteracion por si algo se modifica
 
-  static List<USSDActionWidgetDomain> ACTIONS() =>
-      [
+  static List<USSDActionWidgetDomain> ACTIONS() => [
         ...CONSULTAS,
         ...DATOS_GROUP.expand(
-              (element) => element.childs,
+          (element) => element.childs,
         ),
+        ...SALDO,
       ];
 
   //------------------ CONSULTAS ------------------\\
@@ -89,4 +89,10 @@ class USSDGroupsDomain {
       USSDActionWidgetDomain.COMPRA_DATOS_BOLSA_DIARIA_C,
     ],
   );
+
+  //------------------ SALDO ------------------\\
+  //No tiene grupos como tal, son todos los items en una lista
+  static List<USSDActionWidgetDomain> SALDO = [
+    USSDActionWidgetDomain.TRANSFERIR_SALDO,
+  ];
 }

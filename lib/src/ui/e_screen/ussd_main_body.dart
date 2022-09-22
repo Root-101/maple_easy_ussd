@@ -24,8 +24,16 @@ class USSDMainBody extends GetView<USSDController> {
       // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
       decoration: NavBarDecoration(
         borderRadius: BorderRadius.vertical(
-          top: Radius.circular(10),
+          top: Radius.circular(15),
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
         colorBehindNavBar: Colors.white,
       ),
       popAllScreensOnTapOfSelectedTab: true,
@@ -49,7 +57,7 @@ class USSDMainBody extends GetView<USSDController> {
       USSDTabFavorite.item,
       USSDTabConsultas.item,
       USSDTabDatos.item,
-      //USSDTabSaldo.item,
+      USSDTabSaldo.item,
     ];
   }
 
@@ -58,7 +66,7 @@ class USSDMainBody extends GetView<USSDController> {
       USSDTabFavorite.screen,
       USSDTabConsultas.screen,
       USSDTabDatos.screen,
-      //USSDTabSaldo.screen,
+      USSDTabSaldo.screen,
     ];
   }
 }
