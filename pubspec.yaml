@@ -15,7 +15,7 @@ dependencies:
 
   # Architecture & Management
   get: ^4.6.5
-  clean_core: ^1.3.3-RELEASE.20220407
+  clean_core: ^1.3.4-SNAPSHOT.20221002
   tuple: ^2.0.0
 
   # ussd / calls
@@ -40,7 +40,7 @@ dependencies:
   objectbox_flutter_libs: ^1.6.0
   path_provider: ^2.0.11
   flat_buffers: ^2.0.5
-  clean_repo_objectbox: ^1.0.0-RELEASE.20220407
+  clean_repo_objectbox: ^1.1.0-RELEASE.20221002
 
   #Utils
   permission_handler: ^10.0.0
