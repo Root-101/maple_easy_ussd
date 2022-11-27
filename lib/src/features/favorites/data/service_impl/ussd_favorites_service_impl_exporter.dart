@@ -1,0 +1,1 @@
+library ussd_favorites_service_impl_exporter;
