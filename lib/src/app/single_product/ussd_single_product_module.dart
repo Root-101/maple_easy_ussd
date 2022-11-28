@@ -6,7 +6,7 @@ class USSDSingleProductModule {
   static Future init() async {
     await KeyValueCoreModule.init();
 
-    await USSDUIModule.init();
+    await USSDFeaturesModule.init();
 
     USSDFirstTimeOpenUseCase uc = USSDFirstTimeOpenUseCaseImpl();
     Get.put<USSDIntroScreenController>(USSDIntroScreenControllerImpl(uc));
