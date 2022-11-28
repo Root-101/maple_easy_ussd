@@ -1,1 +1,0 @@
-library ussd_favorites_usecase_exporter;

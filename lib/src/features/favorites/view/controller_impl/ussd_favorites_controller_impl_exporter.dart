@@ -1,1 +1,0 @@
-library ussd_favorites_controller_impl_exporter;

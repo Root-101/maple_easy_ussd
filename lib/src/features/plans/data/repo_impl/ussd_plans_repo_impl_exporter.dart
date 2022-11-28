@@ -1,1 +1,0 @@
-library ussd_plans_repo_impl_exporter;

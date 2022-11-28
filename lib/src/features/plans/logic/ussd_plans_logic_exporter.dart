@@ -1,6 +1,7 @@
 library ussd_plans_logic_exporter;
 
-export 'ussd_plans_logic_module.dart';
-export 'repo/ussd_plans_repo_exporter.dart';
-export 'usecase/ussd_plans_usecase_exporter.dart';
-export 'usecase_impl/ussd_plans_usecase_impl_exporter.dart';
+export 'domain/ussd_plans_expanded_group_domain.dart';
+export 'repo/ussd_plans_expanded_group_repo.dart';
+export 'usecase/ussd_plans_usecase.dart';
+export 'usecase_impl/ussd_plans_usecase_impl.dart';
+
