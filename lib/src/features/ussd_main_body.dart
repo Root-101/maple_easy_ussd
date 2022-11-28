@@ -55,6 +55,7 @@ class USSDMainBody extends StatelessWidget {
       USSDFavoritesTab.item,
       USSDConsultTab.item,
       USSDPlansTab.item,
+      USSDMoneyTab.item
     ];
   }
 
@@ -63,6 +64,7 @@ class USSDMainBody extends StatelessWidget {
       USSDFavoritesTab.body,
       USSDConsultTab.body,
       USSDPlansTab.body,
+      USSDMoneyTab.body
     ];
   }
 }

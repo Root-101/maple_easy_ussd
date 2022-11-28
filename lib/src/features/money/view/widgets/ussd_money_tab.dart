@@ -1,10 +1,9 @@
-/*import 'package:easy_ussd/ussd_exporter.dart';
+import 'package:easy_ussd/ussd_exporter.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
-class USSDTabSaldo {
-  static Widget screen = USSDTabSaldoScreen();
+class USSDMoneyTab {
+  static Widget body = USSDMoneyTabBody();
 
   static PersistentBottomNavBarItem item = PersistentBottomNavBarItem(
     icon: Icon(CupertinoIcons.money_dollar_circle),
@@ -14,8 +13,8 @@ class USSDTabSaldo {
   );
 }
 
-class USSDTabSaldoScreen extends GetView<USSDController> {
-  USSDTabSaldoScreen({Key? key}) : super(key: key);
+class USSDMoneyTabBody extends StatelessWidget {
+  USSDMoneyTabBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +25,10 @@ class USSDTabSaldoScreen extends GetView<USSDController> {
         ),
         SliverList(
           delegate: SliverChildListDelegate.fixed(
-            USSDPlansGroupsModel.SALDO.map((e) => e.widget).toList(),
+            USSDMoneyWidgets.MONEY,
           ),
         ),
       ],
     );
   }
 }
-*/
