@@ -9,6 +9,9 @@ class USSDPlansModule {
       USSDPlansUseCaseImpl(Get.find<USSDPlansExpandedGroupRepo>()),
     );
     //view
+    Get.put<USSDPlansController>(
+      USSDPlansControllerImpl(Get.find<USSDPlansUseCase>()),
+    );
 
   }
 

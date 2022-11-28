@@ -17,7 +17,7 @@ class USSDIntroScreenControllerImpl extends USSDIntroScreenController {
 
   @override
   void openApp() {
-    USSDAppModule.permissions();
+    USSDFeaturesModule.permissions();
     uc.openApp();
     update();
   }

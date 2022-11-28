@@ -2,7 +2,9 @@ import 'package:get/get.dart';
 import 'package:easy_ussd/ussd_exporter.dart';
 
 class USSDPlansControllerImpl extends USSDPlansController {
-  USSDPlansUseCase uc = Get.find<USSDPlansUseCase>();
+  USSDPlansUseCase uc;
+
+  USSDPlansControllerImpl(this.uc);
 
   @override
   void changeExpansion(USSDPlansGroupsModel item, bool isExpanded) {
