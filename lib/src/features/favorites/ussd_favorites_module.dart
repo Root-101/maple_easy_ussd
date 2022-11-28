@@ -9,7 +9,8 @@ class USSDFavoritesModule {
       USSDFavoritesUseCaseImpl(Get.find<USSDFavoritesRepo>()),
     );
     //view
-
+    Get.put<USSDFavoritesController>(
+      USSDFavoritesControllerImpl(Get.find<USSDFavoritesUseCase>()),
+    );
   }
-
 }

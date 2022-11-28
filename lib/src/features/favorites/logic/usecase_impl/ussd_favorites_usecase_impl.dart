@@ -6,7 +6,7 @@ class USSDFavoritesUseCaseImpl extends USSDFavoritesUseCase {
   USSDFavoritesUseCaseImpl(this._favoriteActionRepo);
 
   @override
-  void changeFavorite(ActionsUSSD action) {
+  void changeFavorite(USSDCode action) {
     USSDFavoriteActionDomain domain =
         _favoriteActionRepo.findByActionKey(action.key);
     domain.favorite = !domain.favorite;
@@ -26,7 +26,7 @@ class USSDFavoritesUseCaseImpl extends USSDFavoritesUseCase {
   }
 
   @override
-  bool isFavorite(ActionsUSSD action) {
+  bool isFavorite(USSDCode action) {
     return _favoriteActionRepo.findByActionKey(action.key).favorite;
   }
 }

@@ -1,1 +1,0 @@
-library ussd_consult_controller_impl_exporter;

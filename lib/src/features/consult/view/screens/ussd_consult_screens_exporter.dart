@@ -1,1 +1,0 @@
-library ussd_consult_screens_exporter;

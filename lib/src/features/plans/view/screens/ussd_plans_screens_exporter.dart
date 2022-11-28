@@ -1,1 +1,0 @@
-library ussd_plans_screens_exporter;
