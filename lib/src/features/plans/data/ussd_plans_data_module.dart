@@ -2,12 +2,11 @@ import 'dart:io';
 
 import 'package:easy_ussd/ussd_exporter.dart';
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
+import 'package:get/get.dart';
 
 class USSDPlansDataModule {
   static late final Store
-  _STORE; //todo: posible null pointer, llamar primero al constructor
-
-  static late final USSDPlansExpandedGroupRepo expandedGroupRepo;
+      _STORE; //todo: posible null pointer, llamar primero al constructor
 
   static const _USSDPlansDir = "/plans";
 
@@ -16,7 +15,8 @@ class USSDPlansDataModule {
     Directory defaultDir = await defaultStoreDirectory();
 
     //se concatenan las direcciones
-    Directory dbDir = Directory('${defaultDir.path}$parentDirectory$_USSDPlansDir');
+    Directory dbDir =
+        Directory('${defaultDir.path}$parentDirectory$_USSDPlansDir');
 
     //Se crea el directorio por si no está creado
     dbDir = await dbDir.create(recursive: true);
@@ -24,9 +24,11 @@ class USSDPlansDataModule {
     _STORE = await openStore(directory: dbDir.path);
 
     USSDPlanExpandedGroupService expandedGroupService =
-    USSDExpandedGroupServiceImpl(_STORE);
+        USSDExpandedGroupServiceImpl(_STORE);
 
-    expandedGroupRepo = USSDPlansExpandedGroupRepoImpl(expandedGroupService);
+    Get.put<USSDPlansExpandedGroupRepo>(
+      USSDPlansExpandedGroupRepoImpl(expandedGroupService),
+    );
 
     return _STORE != null;
   }
