@@ -1,0 +1,8 @@
+import 'package:get/get.dart';
+import 'package:easy_ussd/ussd_exporter.dart';
+
+abstract class USSDPlansController extends GetxController {
+  bool isExpandedGroup(USSDGroupsDomain item);
+
+  void changeExpansion(USSDGroupsDomain item, bool isExpanded);
+}
