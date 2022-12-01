@@ -16,6 +16,12 @@ void main() {
 class USSDApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Set portrait orientation.
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return ThemeProvider(
       initTheme: CustomTheme.lightThemeData,
       builder: (context, myTheme) {
