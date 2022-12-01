@@ -1,5 +1,7 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:easy_ussd/src/app/theme/theme_exporter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:easy_ussd/ussd_exporter.dart';
@@ -15,10 +17,7 @@ class USSDApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ThemeProvider(
-      initTheme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.blue,
-      ),
+      initTheme: CustomTheme.lightThemeData,
       builder: (context, myTheme) {
         return _app(myTheme);
       },
@@ -31,7 +30,6 @@ Widget _app(ThemeData theme) {
     title: 'Fácil *133#',
     //--------------------- <THEAMING> -----------------------------------
     theme: theme,
-    //--------------------- </THEAMING> -----------------------------------
     //--------------------- <PAGINATION> -----------------------------------
     initialRoute: USSDIntroScreenPage.ROUTE_NAME,
     getPages: [
