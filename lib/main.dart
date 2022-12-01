@@ -28,6 +28,7 @@ class USSDApp extends StatelessWidget {
 Widget _app(ThemeData theme) {
   return GetMaterialApp(
     title: 'Fácil *133#',
+    debugShowCheckedModeBanner: false,
     //--------------------- <THEAMING> -----------------------------------
     theme: theme,
     //--------------------- <PAGINATION> -----------------------------------
