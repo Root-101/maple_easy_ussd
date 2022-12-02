@@ -12,7 +12,7 @@ class CustomTheme {
       modalBackgroundColor: Colors.white.withOpacity(1),
     ),
     // The theme for all the types of text in the app.
-    textTheme: TextsTheme.textTheme,
+    textTheme: TextsTheme.lightTextTheme,
     indicatorColor: ColorsTheme.primary,
     // Define the default brightness and colors.
     colorScheme: const ColorScheme.light(
@@ -28,7 +28,7 @@ class CustomTheme {
     fontFamily: 'Archivo',
     primaryColor: ColorsTheme.primary,
     // The theme for all the types of text in the app.
-    textTheme: TextsTheme.textTheme,
+    textTheme: TextsTheme.darkTextTheme,
     indicatorColor: ColorsTheme.primary,
     // Define the default brightness and colors.
     colorScheme: const ColorScheme.dark(
