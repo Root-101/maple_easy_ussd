@@ -9,16 +9,15 @@ class USSDFavoritesTab {
   static Widget body = USSDFavoritesTabBody();
 
   static PersistentBottomNavBarItem item = PersistentBottomNavBarItem(
-    icon: GetBuilder<USSDFavoritesController>(
-        builder: (_) {
-          return HeartBeat(
-            //siempre genera una llave unica para que actualize, con la misma llave considera el mismo widget y no actualiza
-            key: UniqueKey(),
-            child: Icon(
-              CupertinoIcons.heart_fill,
-            ),
-          );
-        }),
+    icon: GetBuilder<USSDFavoritesController>(builder: (_) {
+      return HeartBeat(
+        //siempre genera una llave unica para que actualize, con la misma llave considera el mismo widget y no actualiza
+        key: UniqueKey(),
+        child: Icon(
+          CupertinoIcons.heart_fill,
+        ),
+      );
+    }),
     title: ("Favoritos"),
     activeColorPrimary: Colors.redAccent,
     inactiveColorPrimary: CupertinoColors.systemGrey,
@@ -32,23 +31,35 @@ class USSDFavoritesTabBody extends GetView<USSDFavoritesController> {
   Widget build(BuildContext context) {
     return GetBuilder<USSDFavoritesController>(
       builder: (_) {
-        List<USSDFavoritesCodes> favorites = controller.findFavorites();
+        print("--------------------------------------");
+        List<USSDFavoritesCodes> favoritesConsult =
+        controller.findFavorites_Consults();
+
+        List<USSDFavoritesCodes> favoritesPlans =
+        controller.findFavorites_Plans();
+
+        List<USSDFavoritesCodes> all = [];
+        all.addAll(favoritesConsult);
+        all.addAll(favoritesPlans);
+
+        print("--------------------------------------");
+
         return CustomScrollView(
           slivers: [
             USSDSliverAppBar(
               title: 'Favoritos',
             ),
-            favorites.isEmpty
+            favoritesConsult.isEmpty && favoritesPlans.isEmpty
                 ? SliverFillRemaining(
-                    child: Center(
-                      child: Text('No hay favoritos'),
-                    ),
-                  )
+              child: Center(
+                child: Text('No hay favoritos'),
+              ),
+            )
                 : SliverList(
-                    delegate: SliverChildListDelegate.fixed(
-                      favorites.map((child) => child.widget).toList(),
-                    ),
-                  ),
+              delegate: SliverChildListDelegate.fixed(
+                all.map((child) => child.widget).toList(),
+              ),
+            ),
           ],
         );
       },
