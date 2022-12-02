@@ -4,10 +4,10 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
 class USSDConsultItem extends StatelessWidget {
-  USSDCode function;
-  String title;
+  final USSDCode function;
+  final String title;
 
-  USSDConsultItem({
+  const USSDConsultItem({
     required this.function,
     required this.title,
     Key? key,
@@ -15,24 +15,26 @@ class USSDConsultItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        function.text,
-      ),
-      onTap: () async {
-        context.loaderOverlay.show();
-        String? resp = await function.execute();
-        AwesomeDialog(
-          context: context,
-          dialogType: DialogType.success,
-          title: '$title',
-          desc: '$resp',
-          btnOkOnPress: () {},
-        )..show();
-        context.loaderOverlay.hide();
-      },
-      trailing: FavoriteButton(
-        function,
+    return Card(
+      child: ListTile(
+        title: Header(
+          title: function.text,
+        ),
+        onTap: () async {
+          context.loaderOverlay.show();
+          String? resp = await function.execute();
+          AwesomeDialog(
+            context: context,
+            dialogType: DialogType.success,
+            title: '$title',
+            desc: '$resp',
+            btnOkOnPress: () {},
+          )..show();
+          context.loaderOverlay.hide();
+        },
+        trailing: FavoriteButton(
+          function,
+        ),
       ),
     );
   }
