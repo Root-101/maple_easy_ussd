@@ -110,25 +110,25 @@ class USSDPlansGroupsData {
     function: USSDPlansCodes.COMPRA_SMS_15_C,
     price: "15",
     title: "Plan de 20 SMS",
-    description: "Cada SMS es equivalente a \$0.70)",
+    description: "Cada SMS es equivalente a \$0.70",
   );
   static USSDPlanItemModel COMPRA_SMS_30_C = USSDPlanItemModel(
     function: USSDPlansCodes.COMPRA_SMS_30_C,
     price: "30",
     title: "Plan de 50 SMS",
-    description: "Cada SMS es equivalente a \$0.60)",
+    description: "Cada SMS es equivalente a \$0.60",
   );
   static USSDPlanItemModel COMPRA_SMS_50_C = USSDPlanItemModel(
     function: USSDPlansCodes.COMPRA_SMS_50_C,
     price: "50",
     title: "Plan de 90 SMS",
-    description: "Cada SMS es equivalente a \$0.55)",
+    description: "Cada SMS es equivalente a \$0.55",
   );
   static USSDPlanItemModel COMPRA_SMS_60_C = USSDPlanItemModel(
     function: USSDPlansCodes.COMPRA_SMS_60_C,
     price: "60",
     title: "Plan de 120 SMS",
-    description: "Cada SMS es equivalente a \$0.50)",
+    description: "Cada SMS es equivalente a \$0.50",
   );
 
   //------------------------------------ VOZ ---------------------------------\\
@@ -136,35 +136,35 @@ class USSDPlansGroupsData {
     function: USSDPlansCodes.COMPRA_VOZ_37_50_C,
     price: "37.5",
     title: "Plan de VOZ de 5 MIN",
-    description: "Cada minuto es equivalente a \$7.50)",
+    description: "Cada minuto es equivalente a \$7.50",
   );
 
   static USSDPlanItemModel COMPRA_VOZ_72_50_C = USSDPlanItemModel(
     function: USSDPlansCodes.COMPRA_VOZ_72_50_C,
     price: "72.5",
     title: "Plan de VOZ de 10 MIN",
-    description: "Cada minuto es equivalente a \$7.25)",
+    description: "Cada minuto es equivalente a \$7.25",
   );
 
   static USSDPlanItemModel COMPRA_VOZ_105_C = USSDPlanItemModel(
     function: USSDPlansCodes.COMPRA_VOZ_105_C,
     price: "105",
     title: "Plan de VOZ de 15 MIN",
-    description: "Cada minuto es equivalente a \$7)",
+    description: "Cada minuto es equivalente a \$7",
   );
 
   static USSDPlanItemModel COMPRA_VOZ_162_50_C = USSDPlanItemModel(
     function: USSDPlansCodes.COMPRA_VOZ_162_50_C,
     price: "162.5",
     title: "Plan de VOZ de 25 MIN",
-    description: "Cada minuto es equivalente a \$6.50)",
+    description: "Cada minuto es equivalente a \$6.50",
   );
 
   static USSDPlanItemModel COMPRA_VOZ_250_C = USSDPlanItemModel(
     function: USSDPlansCodes.COMPRA_VOZ_250_C,
     price: "250",
     title: "Plan de VOZ de 40 MIN",
-    description: "Cada minuto es equivalente a \$6.25)",
+    description: "Cada minuto es equivalente a \$6.25",
   );
 
 //-------------------------------- PAQUETES LTE ------------------------------\\
@@ -172,19 +172,19 @@ class USSDPlansGroupsData {
     function: USSDPlansCodes.COMPRA_DATOS_PAQUETES_LTE_100_C,
     price: "100",
     title: "Plan de Datos de 1 GB LTE",
-    description: "10 MB son equivalentes a \$1.00)",
+    description: "10 MB son equivalentes a \$1.00",
   );
   static USSDPlanItemModel COMPRA_DATOS_PAQUETES_LTE_200_C = USSDPlanItemModel(
     function: USSDPlansCodes.COMPRA_DATOS_PAQUETES_LTE_200_C,
     price: "200",
     title: "Plan de Datos de 2.5 GB LTE",
-    description: "12.5 MB son equivalentes a \$1.00)",
+    description: "12.5 MB son equivalentes a \$1.00",
   );
   static USSDPlanItemModel COMPRA_DATOS_PAQUETES_LTE_950_C = USSDPlanItemModel(
     function: USSDPlansCodes.COMPRA_DATOS_PAQUETES_LTE_950_C,
     price: "950",
     title: "Plan de Datos de 16 GB LTE",
-    description: "16.8 MB son equivalentes a \$1.00)",
+    description: "16.8 MB son equivalentes a \$1.00",
   );
 
 //---------------------------------- BOLSA -----------------------------------\\
