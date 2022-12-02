@@ -37,35 +37,68 @@ class USSDPlansTabBody extends StatelessWidget {
         ),
         //el wrap para ponerlo dentro del scroll
         SliverToBoxAdapter(
-          child: GetBuilder<USSDPlansController>(builder: (controller) {
-            // Creates a scrollable, linear array of widgets that are created on demand.
-            return Column(
-              children: [
-                ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  physics: const BouncingScrollPhysics(),
-                  // The amount of items in the packages list.
-                  itemCount: USSDPlansGroupsData.plansGroupList.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    // A [ExpansionTile] that show info about a given package.
-                    // Shows the name of the package as a title and expands to
-                    // a list of consults belonging to the package.
-                    return USSDPlansWidgetsExpansionTileWithList(
-                      plansGroupData: USSDPlansGroupsData.plansGroupList[index],
-                    );
-                  },
-                ),
+          child: Column(
+            children: [
+              ListView(
+                padding: EdgeInsets.zero,
+                children: USSDPlansGroupsData.plansGroupList
+                    .map(
+                      (e) => USSDPlansWidgetsExpansionTileWithList(
+                        plansGroupData: e,
+                      ),
+                    )
+                    .toList(),
+                shrinkWrap: true,
+                physics: const BouncingScrollPhysics(),
+              ),
 
-                /// A space in the bottom of the list so it can be view entirely
-                /// Otherwise the part of the list it will be below
-                /// the navigation Bar and cannot be access.
-                SizedBox(height: 20.0)
-              ],
-            );
-          }),
+              /// A space in the bottom of the list so it can be view entirely
+              /// Otherwise the part of the list it will be below
+              /// the navigation Bar and cannot be access.
+              SizedBox(height: 20.0)
+            ],
+          ),
         ),
       ],
     );
   }
 }
+/*
+
+    return CustomScrollView(
+      slivers: [
+        USSDSliverAppBar(
+          title: 'Paquetes',
+        ),
+        //el wrap para ponerlo dentro del scroll
+        SliverToBoxAdapter(
+          child: GetBuilder<USSDPlansController>(builder: (controller) {
+            return ExpansionPanelList(
+              expansionCallback: (int index, bool isExpanded) {
+                controller.changeExpansion(
+                    USSDPlansWidgets.GROUPS[index], isExpanded);
+              },
+              children: USSDPlansWidgets.GROUPS
+                  .map(
+                    (item) => ExpansionPanel(
+                      canTapOnHeader: true,
+                      headerBuilder: (BuildContext context, bool isExpanded) {
+                        return ListTile(
+                          leading: Icon(Icons.ac_unit),
+                          title: item.title,
+                        );
+                      },
+                      body: Column(
+                        children: item.childs,
+                      ),
+                      isExpanded: controller.isExpandedGroup(item),
+                    ),
+                  )
+                  .toList(),
+            );
+          }),
+        ),
+      ],
+    );
+
+*/

@@ -8,7 +8,7 @@ class USSDPlansControllerImpl extends USSDPlansController {
 
   @override
   void changeExpansion(USSDPlansGroupsModel item, bool isExpanded) {
-    uc.changeExpansion(item.groupKey, !isExpanded);
+    uc.changeExpansion(item.groupKey, isExpanded);
     update();
   }
 

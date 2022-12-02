@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:easy_ussd/src/features/plans/ussd_plans_exporter.dart';
 import 'package:get/get.dart';
 
-class USSDPlansWidgetsExpansionTileWithList extends StatelessWidget {
+class USSDPlansWidgetsExpansionTileWithList
+    extends GetView<USSDPlansController> {
   /// The plans group info to be shown in the expansion tile.
   final USSDPlansGroupsModel plansGroupData;
 
@@ -26,6 +27,19 @@ class USSDPlansWidgetsExpansionTileWithList extends StatelessWidget {
         backgroundColor: Get.theme.brightness == Brightness.light
             ? ColorsTheme.primaryExtraLight
             : Colors.black54,
+
+        //si inicialmente esta expandido o no
+        initiallyExpanded: controller.isExpandedGroup(
+          plansGroupData,
+        ),
+
+        //cuando se expande actualizo el valor para que cuando se vuelva a abrir la app este como se dejo
+        onExpansionChanged: (value) {
+          controller.changeExpansion(
+            plansGroupData,
+            value,
+          );
+        },
 
         // The color of the tile's titles when the sublist is expanded.
         textColor: ColorsTheme.primary,
