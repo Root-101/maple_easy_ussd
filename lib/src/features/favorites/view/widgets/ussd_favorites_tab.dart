@@ -31,7 +31,6 @@ class USSDFavoritesTabBody extends GetView<USSDFavoritesController> {
   Widget build(BuildContext context) {
     return GetBuilder<USSDFavoritesController>(
       builder: (_) {
-        print("--------------------------------------");
         List<USSDFavoritesCodes> favoritesConsult =
         controller.findFavorites_Consults();
 
@@ -41,8 +40,6 @@ class USSDFavoritesTabBody extends GetView<USSDFavoritesController> {
         List<USSDFavoritesCodes> all = [];
         all.addAll(favoritesConsult);
         all.addAll(favoritesPlans);
-
-        print("--------------------------------------");
 
         return CustomScrollView(
           slivers: [

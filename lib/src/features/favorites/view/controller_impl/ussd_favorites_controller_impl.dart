@@ -34,8 +34,6 @@ class USSDFavoritesControllerImpl extends USSDFavoritesController {
   List<USSDFavoritesCodes> _filterFavorites(
       List<USSDFavoritesCodes> allActions) {
     List<String> favoriteKeys = uc.favoritesKeys();
-    print("favorites keys $favoriteKeys");
-    print("actions $allActions");
 
     List<USSDFavoritesCodes> fav = [];
 
