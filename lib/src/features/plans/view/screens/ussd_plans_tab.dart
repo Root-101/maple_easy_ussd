@@ -18,7 +18,7 @@ class USSDPlansTab {
     // Color for the current selected item in the navigation bar
     activeColorPrimary: ColorsTheme.primary,
     // Color for the unselected item(s) in the navigation bar.
-    inactiveColorPrimary: ColorsTheme.primaryLight,
+    inactiveColorPrimary: ColorsTheme.grayDark,
   );
 }
 
