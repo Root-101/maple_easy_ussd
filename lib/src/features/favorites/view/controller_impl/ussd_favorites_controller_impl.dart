@@ -23,7 +23,7 @@ class USSDFavoritesControllerImpl extends USSDFavoritesController {
     print(favoriteKeys);
 
     List<USSDFavoritesCodes> allActions = [
-      ...USSDPlansWidgets.FAVORITES(),
+      ...PlansGroupsData.favoritesPlansList(),
       ...USSDConsultWidgets.FAVORITES(),
     ];
 
