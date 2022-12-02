@@ -28,12 +28,12 @@ class USSDSliverAppBar extends StatelessWidget {
       // even if the content is not scrolled under the [AppBar].
       forceElevated: true,
       elevation: 5,
-      // The shape of the app bar's [Material] as well as its shadow.
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(15),
-        ),
-      ),
+      // // The shape of the app bar's [Material] as well as its shadow.
+      // shape: RoundedRectangleBorder(
+      //   borderRadius: BorderRadius.vertical(
+      //     bottom: Radius.circular(15),
+      //   ),
+      // ),
       // A list of Widgets to display in a row after the [title] widget.
       actions: _secondaryButtons(),
       // Whether the app bar should become visible as soon as the user scrolls
@@ -44,7 +44,7 @@ class USSDSliverAppBar extends StatelessWidget {
         padding: const EdgeInsets.only(left: 15.0),
         child: Text(
           '$title',
-          style: TextsTheme.textTheme.headline5!.copyWith(
+          style: TextsTheme.lightTextTheme.headline5!.copyWith(
             color: Colors.white,
           ),
         ),
