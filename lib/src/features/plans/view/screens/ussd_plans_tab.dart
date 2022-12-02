@@ -40,7 +40,6 @@ class USSDPlansTabBody extends StatelessWidget {
           child: Column(
             children: [
               ListView(
-                padding: EdgeInsets.zero,
                 children: USSDPlansGroupsData.plansGroupList
                     .map(
                       (e) => USSDPlansWidgetsExpansionTileWithList(
