@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_ussd/src/features/plans/ussd_plans_exporter.dart';
 import 'package:get/get.dart';
 
-class ExpansionTileWithList extends StatelessWidget {
+class USSDPlansWidgetsExpansionTileWithList extends StatelessWidget {
   /// The plans group info to be shown in the expansion tile.
   final USSDPlansGroupsModel plansGroupData;
 
@@ -11,7 +11,7 @@ class ExpansionTileWithList extends StatelessWidget {
   ///
   /// Shows the name of the plans group as a title and expands to a list of consults
   /// belonging to the plans group.
-  const ExpansionTileWithList({
+  const USSDPlansWidgetsExpansionTileWithList({
     Key? key,
     required this.plansGroupData,
   }) : super(key: key);
@@ -30,7 +30,7 @@ class ExpansionTileWithList extends StatelessWidget {
         // The color of the tile's titles when the sublist is expanded.
         textColor: ColorsTheme.primary,
         // The primary content of the list item.
-        title: Header(
+        title: USSDPlansWidgetsHeader(
           title: plansGroupData.title,
         ),
         // The widgets that are displayed when the tile expands.
@@ -45,7 +45,7 @@ class ExpansionTileWithList extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               // The tile of a consult.
               // Show price, name and description of the given consult.
-              return PackageTile(
+              return USSDPlansWidgetsPackageTile(
                 planItem: plansGroupData.childs[index],
               );
             },

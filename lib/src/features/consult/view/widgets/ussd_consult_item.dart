@@ -17,7 +17,7 @@ class USSDConsultItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        title: Header(
+        title: USSDPlansWidgetsHeader(
           title: function.text,
         ),
         onTap: () async {

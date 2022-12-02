@@ -6,14 +6,14 @@ import 'package:loader_overlay/loader_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class PackageTile extends StatelessWidget {
+class USSDPlansWidgetsPackageTile extends StatelessWidget {
   /// The plan information to show in the tile.
   final USSDPlanItemModel planItem;
 
   /// The tile of a plan.
   ///
   /// Show price, name and description of the given plan.
-  const PackageTile({
+  const USSDPlansWidgetsPackageTile({
     Key? key,
     required this.planItem,
   }) : super(key: key);
@@ -32,7 +32,7 @@ class PackageTile extends StatelessWidget {
                   /// A [CircleAvatar] that shows the price of the given plan.
                   CircleAvatar(
                     backgroundColor: ColorsTheme.primary,
-                    child: Header(
+                    child: USSDPlansWidgetsHeader(
                       title: planItem.price,
                       textColor: Colors.white,
                     ),
@@ -43,7 +43,7 @@ class PackageTile extends StatelessWidget {
 
                   /// A [TileText] that shows the name and description
                   /// of the given plan.
-                  TileText(
+                  USSDPlansWidgetsTileText(
                     title: planItem.title,
                     subtitle: planItem.description,
                   ),

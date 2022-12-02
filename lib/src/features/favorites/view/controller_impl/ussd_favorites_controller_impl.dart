@@ -20,7 +20,7 @@ class USSDFavoritesControllerImpl extends USSDFavoritesController {
   @override
   List<USSDFavoritesCodes> findFavorites_Plans() {
     return _filterFavorites(
-      PlansGroupsData.favoritesPlansList(),
+      USSDPlansGroupsData.favoritesPlansList(),
     );
   }
 

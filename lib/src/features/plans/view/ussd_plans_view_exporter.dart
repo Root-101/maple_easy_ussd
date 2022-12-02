@@ -8,6 +8,6 @@ export 'screens/ussd_plans_tab.dart';
 export 'model/ussd_plans_group_model.dart';
 export 'model/ussd_plan_item_model.dart';
 
-export 'widgets/plans_widgets_exporter.dart';
+export 'widgets/ussd_plans_widgets_exporter.dart';
 
-export 'utils/plans_groups_data.dart';
+export 'model/ussd_plans_groups_data.dart';

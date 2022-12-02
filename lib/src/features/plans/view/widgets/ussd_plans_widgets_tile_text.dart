@@ -3,7 +3,7 @@ import 'package:easy_ussd/src/app/theme/colors_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TileText extends StatelessWidget {
+class USSDPlansWidgetsTileText extends StatelessWidget {
   /// The text styled as title in the tile.
   final String title;
 
@@ -15,7 +15,7 @@ class TileText extends StatelessWidget {
   /// The subtitle is optional.
   ///
   /// The title is a bodyText 1 and the subtitle a subtitle 2.
-  const TileText({
+  const USSDPlansWidgetsTileText({
     Key? key,
     required this.title,
     this.subtitle,

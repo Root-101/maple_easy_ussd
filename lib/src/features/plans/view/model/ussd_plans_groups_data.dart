@@ -1,9 +1,9 @@
 import 'package:easy_ussd/src/features/plans/ussd_plans_exporter.dart';
 import 'package:easy_ussd/src/shared/ussd_shared_exporter.dart';
 
-class PlansGroupsData {
+class USSDPlansGroupsData {
   /// A list with grups of plans.
-  static List<USSDPlansGroupsModel> plansGrupList = [
+  static List<USSDPlansGroupsModel> plansGroupList = [
     PLANES,
     PAQUETES_LTE,
     SMS,
@@ -11,7 +11,7 @@ class PlansGroupsData {
   ];
 
   // A list with all the plans in the plans group list.
-  static List<USSDPlanItemModel> plansList() => plansGrupList
+  static List<USSDPlanItemModel> plansList() => plansGroupList
       .expand(
         (planGroup) => planGroup.childs,
       )
@@ -23,7 +23,7 @@ class PlansGroupsData {
       .map(
         (planItem) => USSDFavoritesCodes(
           code: planItem.function,
-          widget: PackageTile(planItem: planItem),
+          widget: USSDPlansWidgetsPackageTile(planItem: planItem),
         ),
       )
       .toList();

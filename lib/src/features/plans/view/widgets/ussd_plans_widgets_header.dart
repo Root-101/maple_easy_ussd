@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Header extends StatelessWidget {
+class USSDPlansWidgetsHeader extends StatelessWidget {
   /// The text to show as title of the header.
   final String title;
 
@@ -10,7 +10,7 @@ class Header extends StatelessWidget {
   final Color? textColor;
 
   /// A [Text] Widget with a optional custom color and BODYTEXT 1 as textTheme.
-  const Header({
+  const USSDPlansWidgetsHeader({
     Key? key,
     required this.title,
     this.textColor,
