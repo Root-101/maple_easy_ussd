@@ -52,7 +52,7 @@ class USSDPlansTabBody extends StatelessWidget {
                     // Shows the name of the package as a title and expands to
                     // a list of consults belonging to the package.
                     return ExpansionTileWithList(
-                      packageData: PlansGroupsData.plansGrupList[index],
+                      plansGroupData: PlansGroupsData.plansGrupList[index],
                     );
                   },
                 ),
