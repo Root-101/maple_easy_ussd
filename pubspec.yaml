@@ -84,6 +84,7 @@ flutter:
     - assets/app_icon.png
     - assets/app_splash.png
     - assets/favoritos.png
+    - assets/favoritos_dark.png
 
   fonts:
     - family: RobotoSlab

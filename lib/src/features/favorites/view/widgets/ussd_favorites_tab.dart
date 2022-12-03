@@ -48,7 +48,9 @@ class USSDFavoritesTabBody extends GetView<USSDFavoritesController> {
             favoritesConsult.isEmpty && favoritesPlans.isEmpty
                 ? SliverFillRemaining(
                     child: Center(
-                      child: Image.asset("assets/favoritos.png"),
+                      child: Get.theme.brightness == Brightness.light
+                          ? Image.asset("assets/favoritos.png")
+                          : Image.asset("assets/favoritos_dark.png"),
                     ),
                   )
                 : SliverList(
