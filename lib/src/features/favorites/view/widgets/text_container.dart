@@ -28,8 +28,7 @@ class TextContainer extends StatelessWidget {
           margin: const EdgeInsets.fromLTRB(10, 20, 10, 10),
           // Empty space to inscribe inside the [decoration].
           // The [child], if any, is placed inside this padding.
-          padding:
-              const EdgeInsets.only(bottom: 5, left: 4, right: 4),
+          padding: const EdgeInsets.only(bottom: 5, left: 4, right: 4),
           // The decoration to paint behind the [child].
           decoration: BoxDecoration(
             // A border to draw above the background.
@@ -56,7 +55,9 @@ class TextContainer extends StatelessWidget {
             padding: const EdgeInsets.only(left: 10, right: 10),
             // This should be the color of the background so the text seems like
             // it is floating.
-            color: Colors.white,
+            color: Get.theme.brightness == Brightness.light
+                ? Colors.grey.shade50
+                : Colors.grey[850],
             // The text/title of the container.
             child: Text(
               textTitle,
