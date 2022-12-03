@@ -49,20 +49,17 @@ class USSDPlansWidgetsExpansionTileWithList
         ),
         // The widgets that are displayed when the tile expands.
         children: <Widget>[
-          ListView.builder(
+          ListView(
+            children: plansGroupData.childs
+                .map(
+                  (e) => USSDPlansWidgetsPackageTile(
+                    planItem: e,
+                  ),
+                )
+                .toList(),
             shrinkWrap: true,
             // So de list can't be scrolled.
             physics: const NeverScrollableScrollPhysics(),
-            // The amount of items/consults to be displayed in the list.
-            itemCount: plansGroupData.childs.length,
-            // The build of every single item.
-            itemBuilder: (BuildContext context, int index) {
-              // The tile of a consult.
-              // Show price, name and description of the given consult.
-              return USSDPlansWidgetsPackageTile(
-                planItem: plansGroupData.childs[index],
-              );
-            },
           ),
         ],
       ),
