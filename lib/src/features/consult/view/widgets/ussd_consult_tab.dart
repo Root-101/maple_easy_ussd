@@ -1,4 +1,5 @@
 import 'package:easy_ussd/src/app/theme/colors_theme.dart';
+import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:easy_ussd/ussd_exporter.dart';
@@ -6,6 +7,7 @@ import 'package:easy_ussd/ussd_exporter.dart';
 class USSDConsultTab {
   /// The body of the Screen when Consults is selected.
   static Widget body = USSDConsultTabBody();
+
   // The view in the [BottonNavigationBar] of the Consult button.
   static PersistentBottomNavBarItem item = PersistentBottomNavBarItem(
     // Icon for the bar item.
@@ -24,20 +26,26 @@ class USSDConsultTabBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        // Builds a [SliverAppBar] with a custom title and
-        // the posibility to access the intro page and
-        // to change the theme of the app between light and dark.
-        USSDSliverAppBar(
-          title: 'Consultas',
+    return Scaffold(
+      appBar: USSDAppBar.build(
+        title: 'Consultas',
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ListView(
+              children: USSDConsultWidgets.CONSULTS,
+              shrinkWrap: true,
+              physics: const BouncingScrollPhysics(),
+            ),
+
+            /// A space in the bottom of the list so it can be view entirely
+            /// Otherwise the part of the list it will be below
+            /// the navigation Bar and cannot be access.
+            SizedBox(height: 20.0)
+          ],
         ),
-        SliverList(
-          delegate: SliverChildListDelegate.fixed(
-            USSDConsultWidgets.CONSULTS,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

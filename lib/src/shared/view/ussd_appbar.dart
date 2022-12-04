@@ -5,8 +5,8 @@ import 'package:easy_ussd/ussd_exporter.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
-class USSDSliverAppBar {
-  static USSDAppBar({required String title, List<Widget>? actions}) {
+class USSDAppBar {
+  static AppBar build({required String title, List<Widget>? actions}) {
     return AppBar(
       title: Padding(
         padding: const EdgeInsets.only(left: 15.0),

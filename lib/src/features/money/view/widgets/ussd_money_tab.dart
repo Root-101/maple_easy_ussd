@@ -1,4 +1,5 @@
 import 'package:easy_ussd/ussd_exporter.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
@@ -18,17 +19,26 @@ class USSDMoneyTabBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        USSDSliverAppBar(
-          title: 'Saldo',
+    return Scaffold(
+      appBar: USSDAppBar.build(
+        title: 'Saldo',
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ListView(
+              children: USSDMoneyWidgets.MONEY,
+              shrinkWrap: true,
+              physics: const BouncingScrollPhysics(),
+            ),
+
+            /// A space in the bottom of the list so it can be view entirely
+            /// Otherwise the part of the list it will be below
+            /// the navigation Bar and cannot be access.
+            SizedBox(height: 20.0)
+          ],
         ),
-        SliverList(
-          delegate: SliverChildListDelegate.fixed(
-            USSDMoneyWidgets.MONEY,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

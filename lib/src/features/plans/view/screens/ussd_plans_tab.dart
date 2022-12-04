@@ -27,38 +27,31 @@ class USSDPlansTabBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        // Builds a [SliverAppBar] with a custom title and
-        // the posibility to access the intro page and
-        // to change the theme of the app between light and dark.
-        USSDSliverAppBar(
-          title: 'Paquetes',
+    return Scaffold(
+      appBar: USSDAppBar.build(
+        title: 'Paquetes',
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ListView(
+              children: USSDPlansGroupsData.plansGroupList
+                  .map(
+                    (e) => USSDPlansWidgetsExpansionTileWithList(
+                      plansGroupData: e,
+                    ),
+                  )
+                  .toList(),
+              shrinkWrap: true,
+              physics: const BouncingScrollPhysics(),
+            ),
+            /// A space in the bottom of the list so it can be view entirely
+            /// Otherwise the part of the list it will be below
+            /// the navigation Bar and cannot be access.
+            SizedBox(height: 20.0)
+          ],
         ),
-        //el wrap para ponerlo dentro del scroll
-        SliverToBoxAdapter(
-          child: Column(
-            children: [
-              ListView(
-                children: USSDPlansGroupsData.plansGroupList
-                    .map(
-                      (e) => USSDPlansWidgetsExpansionTileWithList(
-                        plansGroupData: e,
-                      ),
-                    )
-                    .toList(),
-                shrinkWrap: true,
-                physics: const BouncingScrollPhysics(),
-              ),
-
-              /// A space in the bottom of the list so it can be view entirely
-              /// Otherwise the part of the list it will be below
-              /// the navigation Bar and cannot be access.
-              SizedBox(height: 20.0)
-            ],
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

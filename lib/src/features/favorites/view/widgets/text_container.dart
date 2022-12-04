@@ -37,7 +37,7 @@ class TextContainer extends StatelessWidget {
               width: 3,
             ),
             // Round the corners of the container.
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(10),
             // The shape to fill the background
             shape: BoxShape.rectangle,
           ),
