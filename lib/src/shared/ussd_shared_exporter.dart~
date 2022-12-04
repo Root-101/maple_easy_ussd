@@ -1,3 +1,0 @@
-library ussd_shared_exporter;
-
-export 'view/ussd_sliver_appbar.dart';

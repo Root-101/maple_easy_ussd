@@ -5,56 +5,28 @@ import 'package:easy_ussd/ussd_exporter.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
-class USSDSliverAppBar extends StatelessWidget {
-  /// The controller of the Intro Screen.
-  late USSDIntroScreenController _introScreenController;
-
-  /// The title to be shown in the [AppBar].
-  final String title;
-
-  /// Builds a [SliverAppBar] with a custom title and the posibility to access
-  /// the intro page and to change the theme of the app between light and dark.
-  USSDSliverAppBar({required this.title, Key? key}) : super(key: key) {
-    // Dependency Injection.
-    _introScreenController = Get.find<USSDIntroScreenController>();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // Creates a Material Design app bar that
-    // can be placed in a [CustomScrollView].
-    return SliverAppBar(
-      // Whether to show the shadow appropriate for the [elevation]
-      // even if the content is not scrolled under the [AppBar].
-      forceElevated: true,
-      elevation: 5,
-      // // The shape of the app bar's [Material] as well as its shadow.
-      // shape: RoundedRectangleBorder(
-      //   borderRadius: BorderRadius.vertical(
-      //     bottom: Radius.circular(15),
-      //   ),
-      // ),
-      // A list of Widgets to display in a row after the [title] widget.
-      actions: _secondaryButtons(),
-      // Whether the app bar should become visible as soon as the user scrolls
-      // towards the app bar.
-      floating: true,
-      // The primary widget displayed in the app bar.
+class USSDSliverAppBar {
+  static USSDAppBar({required String title, List<Widget>? actions}) {
+    return AppBar(
       title: Padding(
         padding: const EdgeInsets.only(left: 15.0),
         child: Text(
-          '$title',
+          title,
           style: TextsTheme.lightTextTheme.headline5!.copyWith(
             color: Colors.white,
           ),
         ),
       ),
+      actions:
+          actions ?? _secondaryButtons(Get.find<USSDIntroScreenController>()),
     );
   }
 
   /// A list of Widgets with all the secondary buttons to show
   /// besides the title of the [AppBar].
-  List<Widget> _secondaryButtons() => [
+  static List<Widget> _secondaryButtons(
+          USSDIntroScreenController _introScreenController) =>
+      [
         // Show a [IconButton] that allow the user to go back
         // to the introduction screen.
         IconButton(
