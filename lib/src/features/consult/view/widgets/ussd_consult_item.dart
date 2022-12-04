@@ -4,35 +4,35 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
 class USSDConsultItem extends StatelessWidget {
-  USSDCode function;
-  String title;
+  final USSDConsultItemModel item;
 
-  USSDConsultItem({
-    required this.function,
-    required this.title,
+  const USSDConsultItem({
+    required this.item,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        function.text,
-      ),
-      onTap: () async {
-        context.loaderOverlay.show();
-        String? resp = await function.execute();
-        AwesomeDialog(
-          context: context,
-          dialogType: DialogType.success,
-          title: '$title',
-          desc: '$resp',
-          btnOkOnPress: () {},
-        )..show();
-        context.loaderOverlay.hide();
-      },
-      trailing: FavoriteButton(
-        function,
+    return Card(
+      child: ListTile(
+        title: USSDPlansWidgetsHeader(
+          title: item.function.text,
+        ),
+        onTap: () async {
+          context.loaderOverlay.show();
+          String? resp = await item.function.execute();
+          AwesomeDialog(
+            context: context,
+            dialogType: DialogType.success,
+            title: item.title,
+            desc: resp,
+            btnOkOnPress: () {},
+          )..show();
+          context.loaderOverlay.hide();
+        },
+        trailing: FavoriteButton(
+          item.function,
+        ),
       ),
     );
   }

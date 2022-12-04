@@ -17,7 +17,7 @@ class USSDCode {
         code: ussd,
       );
       return response != null
-          ? response!
+          ? response
           : throw Exception("se jodio esto ejecutando el ussd ${text}.");
     };
   }
