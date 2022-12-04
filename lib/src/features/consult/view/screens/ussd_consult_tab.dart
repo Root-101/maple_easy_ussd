@@ -38,7 +38,6 @@ class USSDConsultTabBody extends StatelessWidget {
               shrinkWrap: true,
               physics: const BouncingScrollPhysics(),
             ),
-
             /// A space in the bottom of the list so it can be view entirely
             /// Otherwise the part of the list it will be below
             /// the navigation Bar and cannot be access.
