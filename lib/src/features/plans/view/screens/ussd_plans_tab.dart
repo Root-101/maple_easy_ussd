@@ -37,8 +37,8 @@ class USSDPlansTabBody extends StatelessWidget {
             ListView(
               children: USSDPlansGroupsData.plansGroupList
                   .map(
-                    (e) => USSDPlansWidgetsExpansionTileWithList(
-                      plansGroupData: e,
+                    (groupData) => USSDPlansWidgetsExpansionTileWithList(
+                      plansGroupData: groupData,
                     ),
                   )
                   .toList(),

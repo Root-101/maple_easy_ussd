@@ -34,10 +34,17 @@ class USSDConsultTabBody extends StatelessWidget {
         child: Column(
           children: [
             ListView(
-              children: USSDConsultWidgets.CONSULTS,
+              children: USSDConsultWidgets.CONSULTS
+                  .map(
+                    (consultItem) => USSDConsultItem(
+                      item: consultItem,
+                    ),
+                  )
+                  .toList(),
               shrinkWrap: true,
               physics: const BouncingScrollPhysics(),
             ),
+
             /// A space in the bottom of the list so it can be view entirely
             /// Otherwise the part of the list it will be below
             /// the navigation Bar and cannot be access.

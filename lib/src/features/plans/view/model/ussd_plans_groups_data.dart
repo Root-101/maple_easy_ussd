@@ -17,17 +17,6 @@ class USSDPlansGroupsData {
       )
       .toList();
 
-  // A list with the favorites plans divided in the function to execute and
-  // the widget to display that contains the item.
-  static List<USSDFavoritesCodes> favoritesPlansList() => plansList()
-      .map(
-        (planItem) => USSDFavoritesCodes(
-          code: planItem.function,
-          widget: USSDPlansWidgetsPackageTile(planItem: planItem),
-        ),
-      )
-      .toList();
-
   /// The plan grup with the LTE offer.
   static USSDPlansGroupsModel PAQUETES_LTE = USSDPlansGroupsModel(
     groupKey: "ussd.compras.paquetes_lte",

@@ -18,29 +18,36 @@ class USSDFavoritesControllerImpl extends USSDFavoritesController {
   }
 
   @override
-  List<USSDFavoritesCodes> findFavorites_Plans() {
-    return _filterFavorites(
-      USSDPlansGroupsData.favoritesPlansList(),
-    );
-  }
-
-  @override
-  List<USSDFavoritesCodes> findFavorites_Consults() {
-    return _filterFavorites(
-      USSDConsultWidgets.FAVORITES(),
-    );
-  }
-
-  List<USSDFavoritesCodes> _filterFavorites(
-      List<USSDFavoritesCodes> allActions) {
+  List<USSDPlanItemModel> findFavorites_Plans() {
     List<String> favoriteKeys = uc.favoritesKeys();
 
-    List<USSDFavoritesCodes> fav = [];
+    List<USSDPlanItemModel> fav = [];
 
     favoriteKeys.forEach((key) {
 
-      USSDFavoritesCodes? finded = allActions.firstWhereOrNull(
-        (action) => key == action.code.key,
+      USSDPlanItemModel? finded = USSDPlansGroupsData.plansList().firstWhereOrNull(
+            (action) => key == action.function.key,
+      );
+      if (finded != null) {
+        fav.add(
+          finded!,
+        );
+      }
+    });
+
+    return fav;
+  }
+
+  @override
+  List<USSDConsultItemModel> findFavorites_Consults() {
+    List<String> favoriteKeys = uc.favoritesKeys();
+
+    List<USSDConsultItemModel> fav = [];
+
+    favoriteKeys.forEach((key) {
+
+      USSDConsultItemModel? finded = USSDConsultWidgets.CONSULTS.firstWhereOrNull(
+            (action) => key == action.function.key,
       );
       if (finded != null) {
         fav.add(

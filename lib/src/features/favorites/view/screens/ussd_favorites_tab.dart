@@ -40,8 +40,8 @@ class USSDFavoritesTabBody extends GetView<USSDFavoritesController> {
   }
 
   Widget fullBody({
-    required List<USSDFavoritesCodes> favoritesConsult,
-    required List<USSDFavoritesCodes> favoritesPlans,
+    required List<USSDConsultItemModel> favoritesConsult,
+    required List<USSDPlanItemModel> favoritesPlans,
   }) {
     return SingleChildScrollView(
       child: Column(
@@ -51,12 +51,15 @@ class USSDFavoritesTabBody extends GetView<USSDFavoritesController> {
             // but insted of a text, the area will hold a widget.
             TextContainer(
               textTitle: "Consultas",
-              child: ListView.builder(
+              child: ListView(
+                children: favoritesConsult
+                    .map((consultItem) => USSDConsultItem(
+                          item: consultItem,
+                        ))
+                    .toList(),
                 shrinkWrap: true,
                 // So de list can't be scrolled.
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: favoritesConsult.length,
-                itemBuilder: (context, item) => favoritesConsult[item].widget,
               ),
             ),
           if (favoritesPlans.isNotEmpty)
@@ -64,14 +67,20 @@ class USSDFavoritesTabBody extends GetView<USSDFavoritesController> {
             // but insted of a text, the area will hold a widget.
             TextContainer(
               textTitle: "Planes",
-              child: ListView.builder(
+              child: ListView(
+                children: favoritesPlans
+                    .map(
+                      (planItem) => USSDPlansWidgetsPackageTile(
+                        planItem: planItem,
+                      ),
+                    )
+                    .toList(),
                 shrinkWrap: true,
                 // So de list can't be scrolled.
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: favoritesPlans.length,
-                itemBuilder: (context, item) => favoritesPlans[item].widget,
               ),
             ),
+
           /// A space in the bottom of the list so it can be view entirely
           /// Otherwise the part of the list it will be below
           /// the navigation Bar and cannot be access.
@@ -89,10 +98,10 @@ class USSDFavoritesTabBody extends GetView<USSDFavoritesController> {
       ),
       body: GetBuilder<USSDFavoritesController>(
         builder: (_) {
-          List<USSDFavoritesCodes> favoritesConsult =
+          List<USSDConsultItemModel> favoritesConsult =
               controller.findFavorites_Consults();
 
-          List<USSDFavoritesCodes> favoritesPlans =
+          List<USSDPlanItemModel> favoritesPlans =
               controller.findFavorites_Plans();
           return favoritesConsult.isEmpty && favoritesPlans.isEmpty
               ? emptyBody()

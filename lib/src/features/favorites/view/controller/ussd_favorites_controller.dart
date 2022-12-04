@@ -6,7 +6,7 @@ abstract class USSDFavoritesController extends GetxController {
 
   bool isFavoriteAction(USSDCode action);
 
-  List<USSDFavoritesCodes> findFavorites_Plans();
+  List<USSDPlanItemModel> findFavorites_Plans();
 
-  List<USSDFavoritesCodes> findFavorites_Consults();
+  List<USSDConsultItemModel> findFavorites_Consults();
 }

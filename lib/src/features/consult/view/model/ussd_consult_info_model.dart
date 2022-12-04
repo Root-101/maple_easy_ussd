@@ -2,7 +2,7 @@ import 'package:easy_ussd/ussd_exporter.dart';
 
 class USSDConsultWidgets {
   //todas als acciones, las consultas no llevan grupos
-  static List<USSDConsultItem> CONSULTS = [
+  static List<USSDConsultItemModel> CONSULTS = [
     CONSULTAR_SALDO,
     CONSULTAR_BONO,
     CONSULTAR_DATOS,
@@ -12,46 +12,37 @@ class USSDConsultWidgets {
     CONSULTAR_VOZ,
   ];
 
-  //todas las acciones separadas widget/ussd_code
-  static List<USSDFavoritesCodes> FAVORITES() => CONSULTS
-      .map(
-        (e) => USSDFavoritesCodes(
-      code: e.function,
-      widget: e,
-    ),
-  )
-      .toList();
-  static USSDConsultItem CONSULTAR_SALDO = USSDConsultItem(
+  static USSDConsultItemModel CONSULTAR_SALDO = USSDConsultItemModel(
     function: USSDConsultDomain.CONSULTAR_SALDO,
     title: 'Saldo',
   );
 
-  static USSDConsultItem CONSULTAR_BONO = USSDConsultItem(
+  static USSDConsultItemModel CONSULTAR_BONO = USSDConsultItemModel(
     function: USSDConsultDomain.CONSULTAR_BONO,
     title: 'Bono',
   );
 
-  static USSDConsultItem CONSULTAR_DATOS = USSDConsultItem(
+  static USSDConsultItemModel CONSULTAR_DATOS = USSDConsultItemModel(
     function: USSDConsultDomain.CONSULTAR_DATOS,
     title: 'Datos',
   );
 
-  static USSDConsultItem CONSULTAR_SALDO_PETROLERO = USSDConsultItem(
+  static USSDConsultItemModel CONSULTAR_SALDO_PETROLERO = USSDConsultItemModel(
     function: USSDConsultDomain.CONSULTAR_SALDO_PETROLERO,
     title: 'Saldo Petrolero',
   );
 
-  static USSDConsultItem CONSULTAR_PLAN_AMIGO = USSDConsultItem(
+  static USSDConsultItemModel CONSULTAR_PLAN_AMIGO = USSDConsultItemModel(
     function: USSDConsultDomain.CONSULTAR_PLAN_AMIGO,
     title: 'Plan Amigo',
   );
 
-  static USSDConsultItem CONSULTAR_SMS = USSDConsultItem(
+  static USSDConsultItemModel CONSULTAR_SMS = USSDConsultItemModel(
     function: USSDConsultDomain.CONSULTAR_SMS,
     title: 'SMS',
   );
 
-  static USSDConsultItem CONSULTAR_VOZ = USSDConsultItem(
+  static USSDConsultItemModel CONSULTAR_VOZ = USSDConsultItemModel(
     function: USSDConsultDomain.CONSULTAR_VOZ,
     title: 'Voz',
   );

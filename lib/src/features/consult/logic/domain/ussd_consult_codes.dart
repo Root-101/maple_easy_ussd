@@ -20,7 +20,6 @@ class USSDConsultDomain {
     ussd: "*222*328#",
   );
 
-
   static USSDCode CONSULTAR_SALDO_PETROLERO = USSDCode(
     text: "Consultar saldo petroleto",
     key: "key.consultas.saldo_petrolero",
@@ -44,5 +43,4 @@ class USSDConsultDomain {
     key: "key.consultas.voz",
     ussd: "*222*869#",
   );
-
 }
